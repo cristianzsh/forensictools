@@ -8,6 +8,8 @@
 
 In addition to installing the tools, ```forensictools``` seamlessly integrates the programs into the Windows PATH. This integration allows for effortless utilization of these tools directly from the command line, eliminating the need for manual setup or configuration.
 
+A list with all tools can be found [here](https://cristianzsh.github.io/projects/forensictools.html).
+
 <p align="center">
     <img src="imgs/forensictools_overview.png"/>
 </p>
