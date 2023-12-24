@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>forensictools</title>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                background-color: #2E3440;
+                color: #E5E9F0;
+                font-family: Arial;
+                padding: 30px;
+            }
+
+            h1 {
+                padding-bottom: 20px;
+            }
+
+            details {
+                padding-bottom: 20px;
+            }
+
+            summary {
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            code {
+                font-family: Courier;
+            }
+
+            pre {
+                padding-left: 30px;
+            }
+
+            a {
+                color: #E5E9F0;
+            }
+
+            .description {
+                padding: 25px;
+            }
+
+            #logo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <img id="logo" src="forensictools_full.png"/>
+
+        <section id="binaryanalysis">
+            <h1>Binary analysis</h1>
+            <details>
+                <summary>capa</summary>
+                <div class="description">
+                    <p><a href="https://github.com/mandiant/capa" target="_blank">capa</a> detects capabilities in executable files. You run it against a PE, ELF, .NET module, shellcode file, or a sandbox report and it tells you what it thinks the program can do. For example, it might suggest that the file is a backdoor, is capable of installing services, or relies on HTTP to communicate.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>capa.exe suspicious.exe -vv
+capa 05be49819139a3fdcdbddbdefd298398779521f3d68daa25275cc77508e42310.json
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Detect It Easy</summary>
+                <div class="description">
+                    <a href="https://github.com/horsicq/Detect-It-Easy" target="_blank">DIE</a> is a cross-platform application, apart from Windows version there are also available versions for Linux and Mac OS.
+                </div>
+            </details>
+
+            <details>
+                <summary>floss</summary>
+                <div class="description">
+                    <p>The <a href="https://github.com/mandiant/flare-floss" target="_blank">FLARE Obfuscated String Solver (FLOSS, formerly FireEye Labs Obfuscated String Solver)</a> uses advanced static analysis techniques to automatically extract and deobfuscate all strings from malware binaries.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>floss malware.exe
+floss --only stack tight -- suspicious.exe
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>pestudio</summary>
+                <div class="description">
+                    <p>The goal of <a href="https://www.winitor.com" target="_blank">pestudio</a> is to spot artifacts of executable files in order to ease and accelerate Malware Initial Assessment.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="chromeutilities">
+            <h1>Chrome utilities</h1>
+            
+
+            <details>
+                <summary>BrowsingHistoryView</summary>
+                <div class="description">
+                    <p><a href="https://www.nirsoft.net/utils/browsing_history_view.html" target="_blank">BrowsingHistoryView</a> is a utility that reads the history data of different Web browsers (Mozilla Firefox, Google Chrome, Internet Explorer, Microsoft Edge, Opera) and displays the browsing history of all these Web browsers in one table. The browsing history table includes the following information: Visited URL, Title, Visit Time, Visit Count, Web browser and User Profile. BrowsingHistoryView allows you to watch the browsing history of all user profiles in a running system, as well as to get the browsing history from external hard drive.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>ChromeCacheView</summary>
+                <div class="description">
+                    <p><a href="https://www.nirsoft.net/utils/chrome_cache_view.html" target="_blank">ChromeCacheView</a> is a small utility that reads the cache folder of Google Chrome Web browser, and displays the list of all files currently stored in the cache. For each cache file, the following information is displayed: URL, Content type, File size, Last accessed time, Expiration time, Server name, Server response, and more.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>ChromeCookiesView</summary>
+                <div class="description">
+                    <p><a href="https://www.nirsoft.net/utils/chrome_cookies_view.html" target="_blank">ChromeCookiesView</a> is an alternative to the standard internal cookies viewer of Google Chrome Web browser. it displays the list of all cookies stored by Google Chrome Web browser, and allows you to easily delete unwanted cookies. It also allows you export the cookies into text/csv/html/xml file.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="debugging">
+            <h1>Debugging</h1>
+            <details>
+                <summary>x64dbg</summary>
+                <div class="description">
+                    <p><a href="https://x64dbg.com" target="_blank">x64dbg</a> is an open-source x64/x32 debugger for windows.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="eventloganalysis">
+            <h1>Event log analysis</h1>
+            <details>
+                <summary>Chainsaw</summary>
+                <div class="description">
+                    <p><a href="https://github.com/WithSecureLabs/chainsaw" target="_blank">Chainsaw</a> provides a powerful ‘first-response’ capability to quickly identify threats within Windows forensic artefacts such as Event Logs and the MFT file. Chainsaw offers a generic and fast method of searching through event logs for keywords, and by identifying threats using built-in support for Sigma detection rules, and via custom Chainsaw detection rules.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>chainsaw hunt EVTX-ATTACK-SAMPLES/ -s sigma/ --mapping mappings/sigma-event-logs-all.yml
+chainsaw search mimikatz -i evtx_attack_samples/
+chainsaw search -t 'Event.System.EventID: =4104' evtx_attack_samples/
+chainsaw search -e "DC[0-9].insecurebank.local" evtx_attack_samples --json
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>EvtxECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">EvtxECmd</a> is an event log (evtx) parser with standardized CSV, XML, and json output! Custom maps, locked file support, and more!</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>EvtxECmd.exe -f "C:\Temp\Application.evtx" --csv "c:\temp\out" --csvf MyOutputFile.csv
+EvtxECmd.exe -f "C:\Temp\Application.evtx" --csv "c:\temp\out"
+EvtxECmd.exe -f "C:\Temp\Application.evtx" --json "c:\temp\jsonout"
+                    </code></pre>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="hashing">
+            <h1>Hashing</h1>
+            <details>
+                <summary>HashCalc</summary>
+                <div class="description">
+                    <p><a href="http://www.slavasoft.com/" target="_blank">HashCalc</a> is a free calculator to compute multiple hashes, checksums and HMACs for files, text and hex strings.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Hasher</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Hasher</a> is an utility to calculate hashes for files.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="hexeditors">
+            <h1>Hex editors</h1>
+            <details>
+                <summary>HxD</summary>
+                <div class="description">
+                    <p><a href="https://mh-nexus.de/en/hxd/" target="_blank">HxD</a> is a carefully designed and fast hex editor which, additionally to raw disk editing and modifying of main memory (RAM), handles files of any size.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="mailforensics">
+            <h1>Mail forensics</h1>
+            <details>
+                <summary>MailView</summary>
+                <div class="description">
+                    <p><a href="https://www.mitec.cz/mailview.html" target="_blank">MailView</a> is an utility for viewing Outlook Express, Windows Mail/Windows Live Mail and Mozilla Thunderbird message databases as well as single EML files.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="memoryforensics">
+            <h1>Memory forensics</h1>
+            <details>
+                <summary>Volatility Workbench</summary>
+                <div class="description">
+                    <p><a href="https://www.osforensics.com/tools/volatility-workbench.html" target="_blank">Volatility Workbench</a> is a free open source tool that provides a graphic user interface for the Volatility memory analysis forensics tool.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="mft">
+            <h1>MFT</h1>
+            <details>
+                <summary>MFTECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">MFTECmd</a> is a $MFT, $Boot, $J, $SDS, $I30, and $LogFile parser. Handles locked files.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out" --csvf MyOutputFile.csv
+MFTECmd.exe -f "C:\Temp\SomeMFT" --csv "c:\temp\out"
+MFTECmd.exe -f "C:\Temp\SomeMFT" --json "c:\temp\jsonout"
+MFTECmd.exe -f "C:\Temp\SomeMFT" --body "c:\temp\bout" --bdl c
+MFTECmd.exe -f "C:\Temp\SomeMFT" --de 5-5
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>MFTExplorer</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">MFTExplorer</a> is an graphical $MFT viewer.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="passwordcracking">
+            <h1>Password cracking</h1>
+            <details>
+                <summary>Hash Suite Free</summary>
+                <div class="description">
+                    <p><a href="https://hashsuite.openwall.net" target="_blank">Hash Suite</a> is a Windows program to test security of password hashes.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>hashcat</summary>
+                <div class="description">
+                    <p>hashcat is the world's fastest and most advanced password recovery utility, supporting five unique modes of attack for over 300 highly-optimized hashing algorithms. hashcat currently supports CPUs, GPUs, and other hardware accelerators on Linux, Windows, and macOS, and has facilities to help enable distributed password cracking.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>hashcat -m 0 -a 0 hash.txt wordlist.txt
+hashcat -m 1000 ntlmhash.txt -a 0 rockyou.txt
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Ophcrack</summary>
+                <div class="description">
+                    <p><a href="https://ophcrack.sourceforge.io" target="_blank">Ophcrack</a> is a Windows Password cracker based on Rainbow Tables.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="registryanalysis">
+            <h1>Registry analysis</h1>
+            <details>
+                <summary>RECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">RECmd</a> is a powerful command line Registry tool searching, multi-hive support, plugins, and more.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>RECmd.exe --f "C:\Temp\UsrClass 1.dat" --sk URL --recover false --nl
+RECmd.exe --f "D:\temp\UsrClass 1.dat" --StartDate "11/13/2014 15:35:01"
+RECmd.exe --f "D:\temp\UsrClass 1.dat" --RegEx --sv "(App|Display)Name"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>RegistryExplorer</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Registry Explorer</a> is a registry viewer with searching, multi-hive support, plugins, and more. Handles locked files.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="utilities">
+            <h1>Utilities</h1>
+            <details>
+                <summary>bstrings</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">bstrings</a> is an advanced strings search program.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>bstrings.exe -f "C:\Temp\UsrClass 1.dat" --ls URL
+bstrings.exe -f "C:\Temp\someFile.txt" --lr guid
+bstrings.exe -f "C:\Temp\aBigFile.bin" --fs c:\temp\searchStrings.txt --fr c:\temp\searchRegex.txt -s
+bstrings.exe -d "C:\Temp" --mask "*.dll"
+bstrings.exe -d "C:\Temp" --ar "[\x20-\x37]"
+bstrings.exe -d "C:\Temp" --cp 10007
+bstrings.exe -d "C:\Temp" --ls test
+bstrings.exe -f "C:\Temp\someOtherFile.txt" --lr cc --sa
+bstrings.exe -f "C:\Temp\someOtherFile.txt" --lr cc --sa -m 15 -x 22
+bstrings.exe -f "C:\Temp\UsrClass 1.dat" --ls mui --sl
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>exiftool</summary>
+                <div class="description">
+                    <p><a href="https://exiftool.org" target="_blank">exiftool</a> is a command-line application and Perl library for reading and writing EXIF, GPS, IPTC, XMP, makernotes and other meta information in image, audio and video.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>exiftool image.jpg
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>yara</summary>
+                <div class="description">
+                    <p><a href="https://github.com/VirusTotal/yara" target="_blank">YARA</a> is an open-source tool designed to help malware researchers identify and classify malware samples. It makes it possible to create descriptions (or rules) for malware families based on textual and/or binary patterns. YARA is multi-platform, running on Linux, Windows and Mac OS X. It can be used through its command-line interface or from Python scripts with the YARA-Python extension.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>yara /foo/bar/rules1 /foo/bar/rules2 .
+yara -t Packer -t Compiler /foo/bar/rules bazfile
+yara -r /foo
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>OfficeMalScanner</summary>
+                <div class="description">
+                    <p><a href="http://www.reconstructer.org/code.html">OfficeMalScanner</a> is a Ms Office forensic tool to scan for malicious traces, like shellcode heuristics, PE-files or embedded OLE streams. Found files are being extracted to disk. It supports disassembly and hexview as well as an easy brute force mode to detect encrypted files.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>OfficeMalScanner.exe "C:\File.xls" scan brute debug
+OfficeMalScanner.exe "C:\File.xls" info
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>SQLECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SQLECmd</a> is a tool to find and process SQLite files according to your needs with maps.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>SQLECmd.exe -f "C:\Temp\someFile.db" --csv "c:\temp\out"
+SQLECmd.exe -d "C:\Temp\" --csv "c:\temp\out"
+SQLECmd.exe -d "C:\Temp\" --hunt --csv "c:\temp\out"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>steghide</summary>
+                <div class="description">
+                    <p><a href=""></a> </p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>steghide info image.jpg
+steghide embed -ef file.txt -cf image.jpg
+steghide extract -sf image.jpg
+                    </code></pre>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="windowsartifacts">
+            <h1>Windows artifacts</h1>
+            <details>
+                <summary>AmcacheParser</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">AmcacheParser</a> is an Amcache.hve parser with lots of extra features. Handles locked files.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" --csv C:\temp
+AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" -i on --csv C:\temp --csvf foo.csv
+AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" -w "c:\temp\whitelist.txt" --csv C:\temp
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>AppCompatCacheParser</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">AppCompatCacheParser</a> is an AppCompatCache aka ShimCache parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>AppCompatCacheParser.exe --csv c:\temp -t -c 2
+AppCompatCacheParser.exe --csv c:\temp --csvf results.csv
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>JLECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">JLECmd</a> is a Jump List parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>JLECmd.exe -f "C:\Temp\f01b4d95cf55d32a.customDestinations-ms" --mp
+JLECmd.exe -f "C:\Temp\f01b4d95cf55d32a.automaticDestinations-ms" --json "D:\jsonOutput" --jsonpretty
+JLECmd.exe -d "C:\CustomDestinations" --csv "c:\temp" --html "c:\temp" -q
+JLECmd.exe -d "C:\Users\e\AppData\Roaming\Microsoft\Windows\Recent" --dt "ddd yyyy MM dd HH:mm:ss.fff"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>JumpListExplorer</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">JumpListExplorer</a> is a GUI based Jump List viewer.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>LastActivityView</summary>
+                <div class="description">
+                    <p><a href="https://www.nirsoft.net/utils/computer_activity_view.html" target="_blank">LastActivityView</a> is a tool for Windows operating system that collects information from various sources on a running system, and displays a log of actions made by the user and events occurred on this computer. The activity displayed by LastActivityView includes: Running .exe file, Opening open/save dialog-box, Opening file/folder from Explorer or other software, software installation, system shutdown/start, application or system crash, network connection/disconnection and more.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>LECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">LECmd</a> is a tool for parsing lnk files.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>LECmd.exe -f "C:\Temp\foobar.lnk"
+LECmd.exe -f "C:\Temp\somelink.lnk" --json "D:\jsonOutput" --pretty
+LECmd.exe -d "C:\Temp" --csv "c:\temp" --html c:\temp --xml c:\temp\xml -q
+LECmd.exe -f "C:\Temp\some other link.lnk" --nid --neb
+LECmd.exe -d "C:\Temp" --all
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>PECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">PECmd</a> is a Prefetch parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>PECmd.exe -f "C:\Temp\CALC.EXE-3FBEF7FD.pf"
+PECmd.exe -f "C:\Temp\CALC.EXE-3FBEF7FD.pf" --json "D:\jsonOutput" --jsonpretty
+PECmd.exe -d "C:\Temp" -k "system32, fonts"
+PECmd.exe -d "C:\Temp" --csv "c:\temp" --csvf foo.csv --json c:\temp\json
+PECmd.exe -d "C:\Windows\Prefetch"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>RBCmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">RBCmd</a> is a Recycle Bin artifact (INFO2/$I) parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>RBCmd.exe -f "C:\Temp\INFO2"
+RBCmd.exe -f "C:\Temp\$I3VPA17" --csv "D:\csvOutput"
+RBCmd.exe -d "C:\Temp" --csv "c:\temp"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>RecentFileCacheParser</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">RecentFileCache</a> parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>RecentFileCacheParser.exe -f "C:\Temp\RecentFileCache.bcf" --csv "c:\temp"
+RecentFileCacheParser.exe -f "C:\Temp\RecentFileCache.bcf" --json "D:\jsonOutput" --jsonpretty
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>SBECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SBECmd</a> is a command line edition for exporting shellbag data.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout
+SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --tz "US Eastern Standard Time"
+SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --dedupe
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>SDBExplorer</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SDBExplorer</a> is a Shim database GUI tool.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Thumbcache viewer</summary>
+                <div class="description">
+                    <p><a href="https://thumbcacheviewer.github.io" target="_blank">Thumbcache Viewer</a> allows you to extract thumbnail images from the thumbcache_*.db and iconcache_*.db database files found on Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows 10, and Windows 11.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>WFA</summary>
+                <div class="description">
+                    <p><a href="https://www.mitec.cz/wfa.html" target="_blank">WFA</a> decodes and analyzes some special files used by Windows OS.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>WinPrefetchView</summary>
+                <div class="description">
+                    <p><a href="https://www.nirsoft.net/utils/win_prefetch_view.html" target="_blank">WinPrefetchView</a> is a small utility that reads the Prefetch files stored in your system and displays the information stored in them. By looking in these files, you can learn which files every application is using, and which files are loaded on Windows boot.</p>
+                </div>
+            </details>
+        </section>
+    </body>
+</html>
