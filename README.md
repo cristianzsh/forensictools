@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="imgs/forensictools_full.png"/>
+    <img src="src/imgs/forensictools_full.png"/>
 </p>
 
 ---
@@ -11,7 +11,7 @@ In addition to installing the tools, ```forensictools``` seamlessly integrates t
 A list with all tools can be found [here](https://cristianzsh.github.io/projects/forensictools.html).
 
 <p align="center">
-    <img src="imgs/forensictools_overview.png"/>
+    <img src="src/imgs/forensictools_overview.png"/>
 </p>
 
 # Download and usage
