@@ -20,3 +20,7 @@ This repository hosts only the source code required to build the application pac
 # Adding new tools
 
 If you wish to propose a new tool for inclusion, please open an issue. All tools included in this toolkit are freely available for download.
+
+# Demo
+
+https://github.com/cristianzsh/forensictools/assets/15990449/20a86528-eee7-420e-b11f-64dfeb6748bf
