@@ -140,6 +140,20 @@ floss --only stack tight -- suspicious.exe
         <section id="eventloganalysis">
             <h1>Event log analysis</h1>
             <details>
+                <summary>Hayabusa</summary>
+                <div class="description">
+                    <p><a href="https://github.com/Yamato-Security/hayabusa" target="_blank">Hayabusa</a> is a Windows event log fast forensics timeline generator and threat hunting tool created by the Yamato Security group in Japan.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>hayabusa.exe search -d ../hayabusa-sample-evtx -k "mimikatz"
+hayabusa.exe search -d ../hayabusa-sample-evtx -r "(?:[0-9]{1,3}\.){3}[0-9]{1,3}"
+hayabusa.exe search -d ../hayabusa-sample-evtx -r ".*" -F WorkstationName:"kali"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
                 <summary>Chainsaw</summary>
                 <div class="description">
                     <p><a href="https://github.com/WithSecureLabs/chainsaw" target="_blank">Chainsaw</a> provides a powerful ‘first-response’ capability to quickly identify threats within Windows forensic artefacts such as Event Logs and the MFT file. Chainsaw offers a generic and fast method of searching through event logs for keywords, and by identifying threats using built-in support for Sigma detection rules, and via custom Chainsaw detection rules.</p>
@@ -186,6 +200,18 @@ EvtxECmd.exe -f "C:\Temp\Application.evtx" --json "c:\temp\jsonout"
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Hasher</a> is an utility to calculate hashes for files.</p>
                 </div>
             </details>
+
+            <details>
+                <summary>GetHashes</summary>
+                <div class="description">
+                    <p>Simple batch script for getting MD5, SHA-1, and SHA-256 hashes.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>GetHashes file.exe
+                    </code></pre>
+                </div>
+            </details>
         </section>
 
         <hr/>
@@ -222,6 +248,20 @@ EvtxECmd.exe -f "C:\Temp\Application.evtx" --json "c:\temp\jsonout"
                     <p><a href="https://www.osforensics.com/tools/volatility-workbench.html" target="_blank">Volatility Workbench</a> is a free open source tool that provides a graphic user interface for the Volatility memory analysis forensics tool.</p>
                 </div>
             </details>
+
+            <details>
+                <summary>MemProcFS</summary>
+                <div class="description">
+                    <p><a href="https://github.com/ufrisk/MemProcFS" target="_blank">MemProcFS</a> is an easy and convenient way of viewing physical memory as files in a virtual file system.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>memprocfs.exe -device c:\temp\win10x64-dump.raw
+memprocfs.exe -device c:\temp\win10x64-dump.raw -forensic 1 -forensic-yara-rules c:\yara\rules\windows_malware_index.yar
+memprocfs.exe -device unknown-x64-dump.raw -pagefile0 pagefile.sys -pagefile1 swapfile.sys
+                    </code></pre>
+                </div>
+            </details>
         </section>
 
         <hr/>
@@ -248,6 +288,31 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --de 5-5
                 <summary>MFTExplorer</summary>
                 <div class="description">
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">MFTExplorer</a> is an graphical $MFT viewer.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="packing">
+            <h1>Packing</h1>
+            <details>
+                <summary>UPX</summary>
+                <div class="description">
+                    <p><a href="https://upx.github.io" target="_blank">UPX</a> is a free, secure, portable, extendable, high-performance executable packer for several executable formats.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>upx -o packed_file.exe original_file.exe
+upx -d packed_file.exe
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>XVolkolak</summary>
+                <div class="description">
+                    <p>Xvolkolak is an unpacker emulator. Unlike programs of this type, it does not use DebugAPI and other features of the operating system.</p>
                 </div>
             </details>
         </section>
@@ -312,6 +377,28 @@ RECmd.exe --f "D:\temp\UsrClass 1.dat" --RegEx --sv "(App|Display)Name"
 
         <hr/>
 
+        <section id="thesleuthkit">
+            <h1>The Sleuth Kit</h1>
+            <details>
+                <summary>Sleuth Kit tools</summary>
+                <div class="description">
+                    <p><a href="https://www.sleuthkit.org" target="_blank">The Sleuth Kit®</a> is a collection of command line tools and a C library that allows you to analyze disk images and recover files from them. It is used behind the scenes in Autopsy and many other open source and commercial forensics tools.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>fsstat -i raw evidence.dd
+fls -i raw evidence.dd
+istat -f ext4 -i raw evidence.dd
+mmls evidence.dd
+fsstat evidence.dd
+img_stat evidence.dd
+                    </code></pre>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
         <section id="utilities">
             <h1>Utilities</h1>
             <details>
@@ -336,6 +423,33 @@ bstrings.exe -f "C:\Temp\UsrClass 1.dat" --ls mui --sl
             </details>
 
             <details>
+                <summary>BusyBox</summary>
+                <div class="description">
+                    <p><a href="https://frippery.org/busybox/" target="_blank">BusyBox</a> is a software suite that provides several Unix utilities in a single executable file.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>busybox.exe sh
+busybox.exe sha1sum file.exe
+busybox grep test myfile.txt
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>dd</summary>
+                <div class="description">
+                    <p><a href="http://www.chrysocome.net/dd" target="_blank">dd</a> command reads one block of input and process it and writes it into an output file.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>dd if=\\.\Volume{c18588c0-02e9-11d8-853f-00902758442b} of=c:\temp\usb1.img bs=1M
+dd if=\\?\Device\Harddisk1\Partition0 of=c:\temp\usb2.img bs=1M --size --progress
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
                 <summary>exiftool</summary>
                 <div class="description">
                     <p><a href="https://exiftool.org" target="_blank">exiftool</a> is a command-line application and Perl library for reading and writing EXIF, GPS, IPTC, XMP, makernotes and other meta information in image, audio and video.</p>
@@ -344,6 +458,13 @@ bstrings.exe -f "C:\Temp\UsrClass 1.dat" --ls mui --sl
 
                     <pre><code>exiftool image.jpg
                     </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Timeline Explorer</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Timeline Explorer</a> is tool for viewing CSV and Excel files, as well as aplying filters.</p>
                 </div>
             </details>
 
@@ -391,7 +512,7 @@ SQLECmd.exe -d "C:\Temp\" --hunt --csv "c:\temp\out"
             <details>
                 <summary>steghide</summary>
                 <div class="description">
-                    <p><a href=""></a> </p>
+                    <p><a href="https://steghide.sourceforge.net" target="_blank">Steghide</a> is a steganography program that is able to hide data in various kinds of image and audio files.</p>
 
                     <p><strong>Examples:</strong></p>
 
@@ -399,6 +520,13 @@ SQLECmd.exe -d "C:\Temp\" --hunt --csv "c:\temp\out"
 steghide embed -ef file.txt -cf image.jpg
 steghide extract -sf image.jpg
                     </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>$I Parse</summary>
+                <div class="description">
+                    <p><a href="https://df-stream.com/recycle-bin-i-parser/" target="_blank">$I Parse</a> is a tool for parsing $I (index) files from the Recycle Bin of Windows Vista and later.</p>
                 </div>
             </details>
         </section>
