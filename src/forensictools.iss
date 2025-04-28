@@ -1,6 +1,6 @@
 #define MyAppName "forensictools"
-#define MyAppVersion "1.1"
-#define MyAppVersionInfoVersion "1.1.0.0"
+#define MyAppVersion "1.2"
+#define MyAppVersionInfoVersion "1.2.0.0"
 #define MyAppPublisher "Cristian Souza"
 #define MyAppURL "https://github.com/cristianzsh/forensictools"
 #define MySrcDir "c:\ftools\"
@@ -92,6 +92,9 @@ Name: "binaryanalysis"; Description: "Binary analysis"; Types: full;
 #include "binaryanalysis\pebear.iss"
 #include "binaryanalysis\capa.iss"
 #include "binaryanalysis\floss.iss"
+#include "binaryanalysis\radare2.iss"
+#include "binaryanalysis\ppee.iss"
+#include "binaryanalysis\scdbg.iss"
 
 [Components]
 Name: "debugging"; Description: "Debugging"; Types: full;
@@ -128,6 +131,7 @@ Name: "utilities"; Description: "Utilities"; Types: full;
 #include "utilities\busybox.iss"
 #include "utilities\dd.iss"
 #include "utilities\timelineexplorer.iss"
+#include "utilities\dbbrowser.iss"
 
 [Files]
 Source: "{#MySrcDir}\sendto+\sendto+_x64.exe"; Destdir: "{app}\sendto+\"; Check: Is64BitInstallMode
@@ -222,6 +226,9 @@ begin
       if WizardIsComponentSelected('memoryanalysis\memprocfs') then EnvAddPath(ExpandConstant('{app}') + '\memoryanalysis\memprocfs');
       if WizardIsComponentSelected('binaryanalysis\capa') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\capa');
       if WizardIsComponentSelected('binaryanalysis\floss') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\floss');
+      if WizardIsComponentSelected('binaryanalysis\radare2') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\radare2\bin');
+      if WizardIsComponentSelected('binaryanalysis\ppee') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\ppee');
+      if WizardIsComponentSelected('binaryanalysis\scdbg') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\scdbg');
       if WizardIsComponentSelected('packing\upx') then EnvAddPath(ExpandConstant('{app}') + '\packing\upx');
       if WizardIsComponentSelected('passwordcracking\hashcat') then EnvAddPath(ExpandConstant('{app}') + '\passwordcracking\hashcat');
       if WizardIsComponentSelected('passwordcracking\ophcrack') then EnvAddPath(ExpandConstant('{app}') + '\passwordcracking\ophcrack');
@@ -236,6 +243,7 @@ begin
       if WizardIsComponentSelected('utilities\busybox') then EnvAddPath(ExpandConstant('{app}') + '\utilities\busybox');
       if WizardIsComponentSelected('utilities\dd') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dd');
       if WizardIsComponentSelected('utilities\timelineexplorer') then EnvAddPath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
+      if WizardIsComponentSelected('utilities\dbbrowser') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dbbrowser');
     end
 end;
 
