@@ -1,4 +1,4 @@
-; ChromeCookiesView v1.74 (https://www.nirsoft.net/utils/chrome_cookies_view.html)
+; ChromeCookiesView v1.82 (https://www.nirsoft.net/utils/chrome_cookies_view.html)
 
 [Components]
 Name: "chromeutilities\chromecookiesview"; Description: "ChromeCookiesView"; Types: full compact; Check: Is64BitInstallMode

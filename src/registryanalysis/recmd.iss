@@ -1,4 +1,4 @@
-; RECmd 1.6.0.0 (https://ericzimmerman.github.io/#!index.md)
+; RECmd 2.1.0.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "registryanalysis\recmd"; Description: "RECmd"; Types: full compact; Check: Is64BitInstallMode

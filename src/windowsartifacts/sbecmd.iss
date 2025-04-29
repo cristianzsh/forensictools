@@ -1,4 +1,4 @@
-; RecentFileCacheParser 2.0.0.0 (https://ericzimmerman.github.io/#!index.md)
+; RecentFileCacheParser 2.1.0.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\sbecmd"; Description: "SBECmd"; Types: full compact;

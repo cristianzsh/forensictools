@@ -1,4 +1,4 @@
-; AppCompatCache Parser 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; AppCompatCache Parser 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\appcompatcacheparser"; Description: "ShimCache parser"; Types: full compact;

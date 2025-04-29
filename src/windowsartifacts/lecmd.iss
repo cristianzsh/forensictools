@@ -1,4 +1,4 @@
-; LECmd 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; LECmd 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\lecmd"; Description: "Lnk file parser"; Types: full compact;

@@ -1,4 +1,4 @@
-; DB Browser for SQLite (https://sqlitebrowser.org/dl/)
+; DB Browser for SQLite 3.13.1 (https://sqlitebrowser.org/dl/)
 
 [Components]
 Name: "utilities\dbbrowser"; Description: "DB Browser for SQLite"; Types: full compact;

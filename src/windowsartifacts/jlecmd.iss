@@ -1,4 +1,4 @@
-; JLECmd 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; JLECmd 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\jlecmd"; Description: "Jump List parser"; Types: full compact;

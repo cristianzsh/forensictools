@@ -1,4 +1,4 @@
-; Radare2 5.9.8 (https://github.com/radareorg/radare2)
+; radare2 5.9.8 (https://github.com/radareorg/radare2)
 
 [Components]
 Name: "binaryanalysis\radare2"; Description: "radare2"; Types: full compact;

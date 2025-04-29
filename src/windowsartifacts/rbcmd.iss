@@ -1,4 +1,4 @@
-; RBCmd 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; RBCmd 1.6.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\rbcmd"; Description: "Recycle Bin artifact parser"; Types: full compact;

@@ -1,4 +1,4 @@
-; hayabusa v2.12.0 (https://github.com/Yamato-Security/hayabusa)
+; hayabusa v3.2.0 (https://github.com/Yamato-Security/hayabusa)
 
 [Components]
 Name: "eventloganalysis\hayabusa"; Description: "Hayabusa"; Types: full compact;

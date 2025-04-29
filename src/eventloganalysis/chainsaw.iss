@@ -1,4 +1,4 @@
-; chainsaw v2.8.1 (https://github.com/WithSecureLabs/chainsaw)
+; chainsaw v2.12.0-1 (https://github.com/WithSecureLabs/chainsaw)
 
 [Components]
 Name: "eventloganalysis\chainsaw"; Description: "Chainsaw"; Types: full compact;

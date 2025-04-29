@@ -1,4 +1,4 @@
-; MemProcFS 5.8 (https://github.com/ufrisk/MemProcFS)
+; MemProcFS 5.14 (https://github.com/ufrisk/MemProcFS)
 
 [Components]
 Name: "memoryanalysis\memprocfs"; Description: "MemProcFS"; Types: full compact; Check: Is64BitInstallMode

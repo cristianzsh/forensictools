@@ -1,4 +1,4 @@
-; UPX v4.2.2 (https://upx.github.io/)
+; UPX v5.0.0 (https://upx.github.io/)
 
 [Components]
 Name: "packing\upx"; Description: "UPX"; Types: full compact;

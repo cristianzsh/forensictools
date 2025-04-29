@@ -1,4 +1,4 @@
-; velociraptor 0.7.1 (https://github.com/Velocidex/velociraptor)
+; velociraptor 0.74 (https://github.com/Velocidex/velociraptor)
 
 [Components]
 Name: "utilities\velociraptor"; Description: "Velociraptor"; Types: full compact;

@@ -1,4 +1,4 @@
-; capa v6.1.0 (https://github.com/mandiant/capa)
+; capa v9.1.0 (https://github.com/mandiant/capa)
 
 [Components]
 Name: "binaryanalysis\capa"; Description: "capa"; Types: full compact;

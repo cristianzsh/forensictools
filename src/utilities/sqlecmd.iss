@@ -1,4 +1,4 @@
-; SQLECmd 1.0.0.0 (https://ericzimmerman.github.io/#!index.md)
+; SQLECmd 1.1.0.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "utilities\sqlecmd"; Description: "SQLECmd"; Types: full compact;

@@ -132,6 +132,7 @@ Name: "utilities"; Description: "Utilities"; Types: full;
 #include "utilities\dd.iss"
 #include "utilities\timelineexplorer.iss"
 #include "utilities\dbbrowser.iss"
+#include "utilities\nc.iss"
 
 [Files]
 Source: "{#MySrcDir}\sendto+\sendto+_x64.exe"; Destdir: "{app}\sendto+\"; Check: Is64BitInstallMode
@@ -224,6 +225,7 @@ begin
       if WizardIsComponentSelected('windowsartifacts\sbecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\sbecmd');
       if WizardIsComponentSelected('memoryanalysis\volatility') then EnvAddPath(ExpandConstant('{app}') + '\memoryanalysis\volatility');
       if WizardIsComponentSelected('memoryanalysis\memprocfs') then EnvAddPath(ExpandConstant('{app}') + '\memoryanalysis\memprocfs');
+      if WizardIsComponentSelected('binaryanalysis\die') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\die');
       if WizardIsComponentSelected('binaryanalysis\capa') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\capa');
       if WizardIsComponentSelected('binaryanalysis\floss') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\floss');
       if WizardIsComponentSelected('binaryanalysis\radare2') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\radare2\bin');
@@ -244,6 +246,7 @@ begin
       if WizardIsComponentSelected('utilities\dd') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dd');
       if WizardIsComponentSelected('utilities\timelineexplorer') then EnvAddPath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
       if WizardIsComponentSelected('utilities\dbbrowser') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dbbrowser');
+      if WizardIsComponentSelected('utilities\nc') then EnvAddPath(ExpandConstant('{app}') + '\utilities\nc');
     end
 end;
 
@@ -267,8 +270,12 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\sbecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\memoryanalysis\volatility');
       EnvRemovePath(ExpandConstant('{app}') + '\memoryanalysis\memprocfs');
+      EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\die');
       EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\capa');
       EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\floss');
+      EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\radare2\bin');
+      EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\ppee');
+      EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\scdbg');
       EnvRemovePath(ExpandConstant('{app}') + '\packing\upx');
       EnvRemovePath(ExpandConstant('{app}') + '\passwordcracking\hashcat');
       EnvRemovePath(ExpandConstant('{app}') + '\passwordcracking\ophcrack');
@@ -283,5 +290,7 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\busybox');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\dd');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\dbbrowser');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\nc');
     end
 end;

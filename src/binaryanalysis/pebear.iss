@@ -1,4 +1,4 @@
-; PE-bear v0.6.6 (https://github.com/hasherezade/pe-bear)
+; PE-bear v0.7.1 (https://github.com/hasherezade/pe-bear)
 
 [Components]
 Name: "binaryanalysis\pebear"; Description: "PE-bear"; Types: full compact;

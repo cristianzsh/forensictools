@@ -1,4 +1,4 @@
-; EvtxECmd 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; EvtxECmd 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "eventloganalysis\evtxecmd"; Description: "Event log (evtx) parser"; Types: full compact;

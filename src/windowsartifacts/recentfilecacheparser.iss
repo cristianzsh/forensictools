@@ -1,4 +1,4 @@
-; RecentFileCacheParser 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; RecentFileCacheParser 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\recentfilecacheparser"; Description: "RecentFileCacheParser"; Types: full compact;

@@ -1,4 +1,4 @@
-; bstrings 1.5.2.0 (https://ericzimmerman.github.io/#!index.md)
+; bstrings 1.5.3.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "utilities\bstrings"; Description: "bstrings"; Types: full compact;

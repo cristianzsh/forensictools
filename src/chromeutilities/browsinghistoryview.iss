@@ -1,4 +1,4 @@
-; BrowsingHistoryView v2.57 (https://www.nirsoft.net/utils/browsing_history_view.html)
+; BrowsingHistoryView v2.60 (https://www.nirsoft.net/utils/browsing_history_view.html)
 
 [Components]
 Name: "chromeutilities\browsinghistoryview"; Description: "BrowsingHistoryView"; Types: full compact; Check: Is64BitInstallMode

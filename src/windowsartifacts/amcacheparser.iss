@@ -1,4 +1,4 @@
-; AmcacheParser 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
+; AmcacheParser 1.5.2.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\amcacheparser"; Description: "Amcache.hve parser"; Types: full compact;

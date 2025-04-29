@@ -1,4 +1,4 @@
-; Detect it Easy 3.08 (https://github.com/horsicq/Detect-It-Easy)
+; Detect it Easy 3.10 (https://github.com/horsicq/Detect-It-Easy)
 
 [Components]
 Name: "binaryanalysis\die"; Description: "Detect It Easy"; Types: full compact;

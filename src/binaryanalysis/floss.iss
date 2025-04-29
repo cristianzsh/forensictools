@@ -1,4 +1,4 @@
-; floss v3.0.1 (https://github.com/mandiant/flare-floss)
+; floss v3.1.1 (https://github.com/mandiant/flare-floss)
 
 [Components]
 Name: "binaryanalysis\floss"; Description: "floss"; Types: full compact;

@@ -1,7 +1,7 @@
 ; exiftool 12.71 (https://exiftool.org/index.html)
 
 [Components]
-Name: "utilities\exiftool"; Description: "exiftool"; Types: full compact;
+Name: "utilities\exiftool"; Description: "ExifTool"; Types: full compact;
 
 [Files]
 Source: "{#MySrcDir}\utilities\exiftool\*"; DestDir: "{app}\utilities\exiftool"; Components: "utilities\exiftool"; Flags: ignoreversion recursesubdirs createallsubdirs

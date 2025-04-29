@@ -4,7 +4,7 @@
 Name: "passwordcracking\hashsuite"; Description: "Hash Suite Free"; Types: full compact;
 
 [Files]
-Source: "{#MySrcDir}\passwordcracking\Hash_Suite_Free\*"; DestDir: "{app}\passwordcracking\hashsuite"; Components: "passwordcracking\hashsuite"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#MySrcDir}\passwordcracking\hashsuite\*"; DestDir: "{app}\passwordcracking\hashsuite"; Components: "passwordcracking\hashsuite"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\{#MyAppName}\Hash Suite Free"; Filename: "{app}\passwordcracking\hashsuite\Hash_Suite_64.exe"; Components: "passwordcracking\hashsuite"; Check: Is64BitInstallMode

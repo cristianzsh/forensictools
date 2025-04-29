@@ -1,4 +1,4 @@
-; PECmd 1.5.0.0 (https://ericzimmerman.github.io/#!index.md)
+; PECmd 1.5.1.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "windowsartifacts\pecmd"; Description: "Prefetch parser"; Types: full compact;

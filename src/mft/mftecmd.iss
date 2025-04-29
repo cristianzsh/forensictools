@@ -1,4 +1,4 @@
-; MFTECmd 1.2.2.0 (https://ericzimmerman.github.io/#!index.md)
+; MFTECmd 1.3.0.0 (https://ericzimmerman.github.io/#!index.md)
 
 [Components]
 Name: "mft\mftecmd"; Description: "MFTECmd"; Types: full compact;

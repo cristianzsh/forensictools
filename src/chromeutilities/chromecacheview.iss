@@ -1,4 +1,4 @@
-; ChromeCacheView v2.46 (https://www.nirsoft.net/utils/chrome_cache_view.html)
+; ChromeCacheView v2.52 (https://www.nirsoft.net/utils/chrome_cache_view.html)
 
 [Components]
 Name: "chromeutilities\chromecacheview"; Description: "ChromeCacheView"; Types: full compact; Check: Is64BitInstallMode
