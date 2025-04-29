@@ -1,6 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.2]
+
+### Added
+- Netcat (nc.exe)
+- PPEE (puppy)
+- radare2
+- scdbg
+- DB Browser for SQLite
+
+### Updates
+
+- Major updates for various tools
+
 ## [1.1] - 2024-01-24
 
 ### Added
