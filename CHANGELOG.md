@@ -21,6 +21,9 @@ All notable changes to this project will be documented in this file.
 - WxTCmd.
 - APT-Hunter.
 - NetworkMiner.
+- Bulk Extractor.
+- OSFMount.
+- CyberChef.
 
 ### Updates
 
