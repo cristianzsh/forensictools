@@ -19,10 +19,12 @@ All notable changes to this project will be documented in this file.
 - SrumECmd.
 - SumECmd.
 - WxTCmd.
+- APT-Hunter.
+- NetworkMiner.
 
 ### Updates
 
-- Major updates for various tools
+- Major updates for various tools.
 
 ## [1.1] - 2024-01-24
 
