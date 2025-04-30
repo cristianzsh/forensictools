@@ -44,6 +44,10 @@ Name: "mft"; Description: "MFT"; Types: full;
 Name: "registryanalysis"; Description: "Registry analysis"; Types: full;
 #include "registryanalysis\recmd.iss"
 #include "registryanalysis\registryexplorer.iss"
+#include "registryanalysis\amcacheparser.iss"
+#include "registryanalysis\appcompatcacheparser.iss"
+#include "registryanalysis\shellbagsexplorer.iss"
+#include "registryanalysis\sbecmd.iss"
 
 [Components]
 Name: "eventloganalysis"; Description: "Event log analysis"; Types: full;
@@ -53,8 +57,6 @@ Name: "eventloganalysis"; Description: "Event log analysis"; Types: full;
 
 [Components]
 Name: "windowsartifacts"; Description: "Windows artifacts"; Types: full;
-#include "windowsartifacts\amcacheparser.iss"
-#include "windowsartifacts\appcompatcacheparser.iss"
 #include "windowsartifacts\jlecmd.iss"
 #include "windowsartifacts\jumplistexplorer.iss"
 #include "windowsartifacts\lecmd.iss"
@@ -64,11 +66,12 @@ Name: "windowsartifacts"; Description: "Windows artifacts"; Types: full;
 #include "windowsartifacts\recentfilecacheparser.iss"
 #include "windowsartifacts\lastactivityview.iss"
 #include "windowsartifacts\thumbcacheviewer.iss"
-#include "windowsartifacts\sbecmd.iss"                                          
-#include "windowsartifacts\shellbagsexplorer.iss"
 #include "windowsartifacts\sdbexplorer.iss"
 #include "windowsartifacts\wfa.iss"
 #include "windowsartifacts\iparse.iss"
+#include "windowsartifacts\srumecmd.iss"
+#include "windowsartifacts\sumecmd.iss"
+#include "windowsartifacts\wxtcmd.iss"
 
 [Components]
 Name: "chromeutilities"; Description: "Chrome utilities"; Types: full;
@@ -133,6 +136,10 @@ Name: "utilities"; Description: "Utilities"; Types: full;
 #include "utilities\timelineexplorer.iss"
 #include "utilities\dbbrowser.iss"
 #include "utilities\nc.iss"
+#include "utilities\trid.iss"
+#include "utilities\testdisk.iss"
+#include "utilities\photorec.iss"
+#include "utilities\python.iss"
 
 [Files]
 Source: "{#MySrcDir}\sendto+\sendto+_x64.exe"; Destdir: "{app}\sendto+\"; Check: Is64BitInstallMode
@@ -212,17 +219,20 @@ begin
       if WizardIsComponentSelected('hashing\gethashes') then EnvAddPath(ExpandConstant('{app}') + '\hashing\gethashes');
       if WizardIsComponentSelected('mft\mftecmd') then EnvAddPath(ExpandConstant('{app}') + '\mft\mftecmd');
       if WizardIsComponentSelected('registryanalysis\recmd') then EnvAddPath(ExpandConstant('{app}') + '\registryanalysis\recmd');
+      if WizardIsComponentSelected('registryanalysis\amcacheparser') then EnvAddPath(ExpandConstant('{app}') + '\registryanalysis\amcacheparser');
+      if WizardIsComponentSelected('registryanalysis\appcompatcacheparser') then EnvAddPath(ExpandConstant('{app}') + '\registryanalysis\appcompatcacheparser');
+      if WizardIsComponentSelected('registryanalysis\sbecmd') then EnvAddPath(ExpandConstant('{app}') + '\registryanalysis\sbecmd');
       if WizardIsComponentSelected('eventloganalysis\evtxecmd') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\evtxecmd');
       if WizardIsComponentSelected('eventloganalysis\chainsaw') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\chainsaw');
       if WizardIsComponentSelected('eventloganalysis\hayabusa') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\hayabusa');
-      if WizardIsComponentSelected('windowsartifacts\amcacheparser') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\amcacheparser');
-      if WizardIsComponentSelected('windowsartifacts\appcompatcacheparser') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\appcompatcacheparser');
       if WizardIsComponentSelected('windowsartifacts\jlecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\jlecmd');
       if WizardIsComponentSelected('windowsartifacts\lecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\lecmd');
       if WizardIsComponentSelected('windowsartifacts\rbcmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\rbcmd');
       if WizardIsComponentSelected('windowsartifacts\pecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\pecmd');
       if WizardIsComponentSelected('windowsartifacts\recentfilecacheparser') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\recentfilecacheparser');
-      if WizardIsComponentSelected('windowsartifacts\sbecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\sbecmd');
+      if WizardIsComponentSelected('windowsartifacts\srumecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\srumecmd');
+      if WizardIsComponentSelected('windowsartifacts\sumecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\sumecmd');
+      if WizardIsComponentSelected('windowsartifacts\wxtcmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\wxtcmd');
       if WizardIsComponentSelected('memoryanalysis\volatility') then EnvAddPath(ExpandConstant('{app}') + '\memoryanalysis\volatility');
       if WizardIsComponentSelected('memoryanalysis\memprocfs') then EnvAddPath(ExpandConstant('{app}') + '\memoryanalysis\memprocfs');
       if WizardIsComponentSelected('binaryanalysis\die') then EnvAddPath(ExpandConstant('{app}') + '\binaryanalysis\die');
@@ -247,6 +257,11 @@ begin
       if WizardIsComponentSelected('utilities\timelineexplorer') then EnvAddPath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
       if WizardIsComponentSelected('utilities\dbbrowser') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dbbrowser');
       if WizardIsComponentSelected('utilities\nc') then EnvAddPath(ExpandConstant('{app}') + '\utilities\nc');
+      if WizardIsComponentSelected('utilities\trid') then EnvAddPath(ExpandConstant('{app}') + '\utilities\trid');
+      if WizardIsComponentSelected('utilities\testdisk') then EnvAddPath(ExpandConstant('{app}') + '\utilities\testdisk');
+      if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts');
+      if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\bmc-tools');
+      if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\pyinstxtractor');
     end
 end;
 
@@ -257,17 +272,20 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\hashing\gethashes');
       EnvRemovePath(ExpandConstant('{app}') + '\mft\mftecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\registryanalysis\recmd');
+      EnvRemovePath(ExpandConstant('{app}') + '\registryanalysis\amcacheparser');
+      EnvRemovePath(ExpandConstant('{app}') + '\registryanalysis\appcompatcacheparser');
+      EnvRemovePath(ExpandConstant('{app}') + '\registryanalysis\sbecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\evtxecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\chainsaw');
       EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\hayabusa');
-      EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\amcacheparser');
-      EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\appcompatcacheparser');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\jlecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\lecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\rbcmd');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\pecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\recentfilecacheparser');
-      EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\sbecmd');
+      EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\srumecmd');
+      EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\sumecmd');
+      EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\wxtcmd');
       EnvRemovePath(ExpandConstant('{app}') + '\memoryanalysis\volatility');
       EnvRemovePath(ExpandConstant('{app}') + '\memoryanalysis\memprocfs');
       EnvRemovePath(ExpandConstant('{app}') + '\binaryanalysis\die');
@@ -292,5 +310,10 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\dbbrowser');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\nc');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\trid');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\testdisk');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\python\scripts');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\bmc-tools');
+      EnvRemovePath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\pyinstxtractor');
     end
 end;

@@ -1,4 +1,4 @@
-; x64dbg Dec 4 2023 (https://x64dbg.com)
+; x64dbg 2025-03-15 (https://x64dbg.com)
 
 [Components]
 Name: "debugging\x64dbg"; Description: "x64dbg"; Types: full compact;
