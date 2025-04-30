@@ -4,11 +4,21 @@ All notable changes to this project will be documented in this file.
 ## [1.2]
 
 ### Added
-- Netcat (nc.exe)
-- PPEE (puppy)
-- radare2
-- scdbg
-- DB Browser for SQLite
+- Netcat (nc.exe).
+- PPEE (puppy).
+- radare2.
+- scdbg.
+- DB Browser for SQLite.
+- TestDisk.
+- WinPython.
+  - bmc-tools.
+  - pyinstxtractor.
+  - pefile.
+  - oletools.
+- TrID.
+- SrumECmd.
+- SumECmd.
+- WxTCmd.
 
 ### Updates
 
