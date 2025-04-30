@@ -93,14 +93,55 @@ floss --only stack tight -- suspicious.exe
                     <p>The goal of <a href="https://www.winitor.com" target="_blank">pestudio</a> is to spot artifacts of executable files in order to ease and accelerate Malware Initial Assessment.</p>
                 </div>
             </details>
+
+            <details>
+                <summary>PE-bear</summary>
+                <div class="description">
+                    <p><a href="https://github.com/hasherezade/pe-bear" target="_blank">PE-bear</a> is a multiplatform reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>PPEE (puppy)</summary>
+                <div class="description">
+                    <p><a href="https://www.mzrst.com" target="_blank">PPEE (puppy)</a> is a Professional PE file Explorer forreversers, malware researchers and those who want to statically inspect PE files in more details.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>radare2</summary>
+                <div class="description">
+                    <p><a href="https://github.com/radareorg/radare2" target="_blank">radare2</a> provides a set of libraries, tools and plugins to ease reverse engineering tasks.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>$ r2 /bin/ls   # open file in read-only
+> aaa          # analyse the program (r2 -A)
+> afl          # list all functions (try aflt, aflm)
+> px 32        # print 32 byte hexdump current block
+> s sym.main   # seek to main (using flag name)
+> f~foo        # filter flags matching 'foo' (internal |grep)
+> iS;is        # list sections and symbols (rabin2 -Ss)
+> pdf; agf     # disassembly and ascii-art function graph
+> oo+;w hello  # reopen in read-write and write a string
+> ?*~...       # interactive filter in all command help
+> q            # quit
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>scdbg</summary>
+                <div class="description">
+                    <p><a href="https://sandsprite.com/blogs/index.php?uid=7&pid=152" target="_blank">scdbg</a> is a shellcode analysis application built around the libemu emulation library. When run it will display to the user all of the Windows API the shellcode attempts to call.</p>
+                </div>
+            </details>
         </section>
 
         <hr/>
 
         <section id="chromeutilities">
             <h1>Chrome utilities</h1>
-            
-
             <details>
                 <summary>BrowsingHistoryView</summary>
                 <div class="description">
@@ -178,6 +219,21 @@ chainsaw search -e "DC[0-9].insecurebank.local" evtx_attack_samples --json
                     <pre><code>EvtxECmd.exe -f "C:\Temp\Application.evtx" --csv "c:\temp\out" --csvf MyOutputFile.csv
 EvtxECmd.exe -f "C:\Temp\Application.evtx" --csv "c:\temp\out"
 EvtxECmd.exe -f "C:\Temp\Application.evtx" --json "c:\temp\jsonout"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>APT-Hunter</summary>
+                <div class="description">
+                    <p><a href="https://github.com/ahmedkhlief/APT-Hunter" target="_blank">APT-Hunter</a> is a Threat Hunting tool for windows event logs which made by purple team mindset to detect APT movements hidden in the sea of windows event logs to decrease the time to uncover suspicious activity. APT-Hunter use pre-defined detection rules and focus on statistics to uncover abnormalities which is very effective in compromise assessment.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>APT-Hunter.exe -p /opt/wineventlogs/ -o Project1 -allreport
+APT-Hunter.exe -hunt "psexec" -p /opt/wineventlogs/ -o Project2
+APT-Hunter.exe -huntfile "(psexec|psexesvc)" -p /opt/wineventlogs/ -o Project2
+APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
                     </code></pre>
                 </div>
             </details>
@@ -354,6 +410,33 @@ hashcat -m 1000 ntlmhash.txt -a 0 rockyou.txt
         <section id="registryanalysis">
             <h1>Registry analysis</h1>
             <details>
+                <summary>AmcacheParser</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">AmcacheParser</a> is an Amcache.hve parser with lots of extra features. Handles locked files.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" --csv C:\temp
+AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" -i on --csv C:\temp --csvf foo.csv
+AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" -w "c:\temp\whitelist.txt" --csv C:\temp
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>AppCompatCacheParser</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">AppCompatCacheParser</a> is an AppCompatCache aka ShimCache parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>AppCompatCacheParser.exe --csv c:\temp -t -c 2
+AppCompatCacheParser.exe --csv c:\temp --csvf results.csv
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
                 <summary>RECmd</summary>
                 <div class="description">
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">RECmd</a> is a powerful command line Registry tool searching, multi-hive support, plugins, and more.</p>
@@ -373,12 +456,52 @@ RECmd.exe --f "D:\temp\UsrClass 1.dat" --RegEx --sv "(App|Display)Name"
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Registry Explorer</a> is a registry viewer with searching, multi-hive support, plugins, and more. Handles locked files.</p>
                 </div>
             </details>
+
+            <details>
+                <summary>SBECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SBECmd</a> is a command line edition for exporting shellbag data.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout
+SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --tz "US Eastern Standard Time"
+SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --dedupe
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>ShellBagsExplorer</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">ShellBagsExplorer</a> is a GUI for browsing shellbags data. Handles locked files.</p>
+                </div>
+            </details>
         </section>
 
         <hr/>
 
-        <section id="thesleuthkit">
-            <h1>The Sleuth Kit</h1>
+        <section id="diskanalysis">
+            <h1>Disk analysis</h1>
+            <details>
+                <summary>bulk_extractor</summary>
+                <div class="description">
+                    <p><a href="https://github.com/simsong/bulk_extractor" target="_blank">bulk_extractor</a> is a high-performance digital forensics exploitation tool. It is a "get evidence" button that rapidly scans any kind of input (disk images, files, directories of files, etc) and extracts structured information such as email addresses, credit card numbers, JPEGs and JSON snippets without parsing the file system or file system structures. The results are stored in text files that are easily inspected, searched, or used as inputs for other forensic processing. bulk_extractor also creates histograms of certain kinds of features that it finds, such as Google search terms and email addresses, as previous research has shown that such histograms are especially useful in investigative and law enforcement applications.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>bulk_extractor -o bulk-out image.img
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>OSFMount</summary>
+                <div class="description">
+                    <p><a href="https://www.osforensics.com/tools/mount-disk-images.html" target="_blank">OSFMount</a> allows you to mount local disk image files (bit-for-bit copies of an entire disk or disk partition) in Windows as a physical disk or a logical drive letter. You can then analyze the disk image file with PassMark OSForensics™ by using the physical disk name (eg. \\.\PhysicalDrive1) or logical drive letter (eg. Z:). By default, the image files are mounted as read only so that the original image files are not altered.</p>
+                </div>
+            </details>
+
             <details>
                 <summary>Sleuth Kit tools</summary>
                 <div class="description">
@@ -393,6 +516,45 @@ mmls evidence.dd
 fsstat evidence.dd
 img_stat evidence.dd
                     </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>PhotoRec</summary>
+                <div class="description">
+                    <p><a href="https://www.cgsecurity.org/wiki/TestDisk_Download" target="_blank">PhotoRec</a> is file data recovery software designed to recover lost files including video, documents and archives from hard disks (Mechanical Hard drives, Solid State Drives...), CD-ROMs, and lost pictures (thus the Photo Recovery name) from digital camera memory. PhotoRec ignores the file system and goes after the underlying data, so it will still work even if your media's file system has been severely damaged or reformatted.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>TestDisk</summary>
+                <div class="description">
+                    <p><a href="https://www.cgsecurity.org/wiki/TestDisk_Download" target="_blank">TestDisk</a> is powerful free data recovery software! It was primarily designed to help recover lost partitions and/or make non-booting disks bootable again when these symptoms are caused by faulty software: certain types of viruses or human error (such as accidentally deleting a Partition Table). Partition table recovery using TestDisk is really easy.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
+        <section id="network">
+            <h1>Network</h1>
+            <details>
+                <summary>nc</summary>
+                <div class="description">
+                    <p><a href="https://sectools.org/tool/netcat/" target="_blank">nc</a> is a simple utility that reads and writes data across TCP or UDP network connections. It is designed to be a reliable back-end tool to use directly or easily drive by other programs and scripts. At the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need, including port binding to accept incoming connections.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>nc -z -v 10.10.10.10 20-80 # simple port scan
+nc -lvp 8080 # listen on port 8080
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>NetworkMiner</summary>
+                <div class="description">
+                    <p><a href="https://www.netresec.com/?page=NetworkMiner" target="_blank">NetworkMiner</a> is an open source network forensics tool that extracts artifacts, such as files, images, emails and passwords, from captured network traffic in PCAP files. NetworkMiner can also be used to capture live network traffic by sniffing a network interface. Detailed information about each IP address in the analyzed network traffic is aggregated to a network host inventory, which can be used for passive asset discovery as well as to get an overview of which devices that are communicating.</p>
                 </div>
             </details>
         </section>
@@ -433,6 +595,20 @@ bstrings.exe -f "C:\Temp\UsrClass 1.dat" --ls mui --sl
 busybox.exe sha1sum file.exe
 busybox grep test myfile.txt
                     </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>CyberChef</summary>
+                <div class="description">
+                    <p><a href="https://github.com/gchq/CyberChef" target="_blank">CyberChef</a> is a simple, intuitive web app for carrying out all manner of "cyber" operations within a web browser. These operations include simple encoding like XOR and Base64, more complex encryption like AES, DES and Blowfish, creating binary and hexdumps, compression and decompression of data, calculating hashes and checksums, IPv6 and X.509 parsing, changing character encodings, and much more.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>DB Browser for SQLite</summary>
+                <div class="description">
+                    <p><a href="https://sqlitebrowser.org/dl/" target="_blank">DB Browser for SQLite</a> is a high quality, visual, open source tool designed for people who want to create, search, and edit SQLite or SQLCipher database files.</p>
                 </div>
             </details>
 
@@ -529,38 +705,33 @@ steghide extract -sf image.jpg
                     <p><a href="https://df-stream.com/recycle-bin-i-parser/" target="_blank">$I Parse</a> is a tool for parsing $I (index) files from the Recycle Bin of Windows Vista and later.</p>
                 </div>
             </details>
+
+            <details>
+                <summary>TrID</summary>
+                <div class="description">
+                    <p><a href="https://mark0.net/soft-trid-e.html" target="_blank">TrID</a> is an utility designed to identify file types from their binary signatures. While there are similar utilities with hard coded logic, TrID has no fixed rules. Instead, it's extensible and can be trained to recognize new formats in a fast and automatic way.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>trid c:\test\mydoc.doc
+trid c:\temp\* -ae
+dir d:\testdrive /s /b | trid -ce -@
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>WinPython</summary>
+                <div class="description">
+                    <p><a href="https://winpython.github.io" target="_blank">WinPython</a> is a free open-source portable distribution of the Python programming language for Windows 10/11 and scientific and educational usage.</p>
+                </div>
+            </details>
         </section>
 
         <hr/>
 
         <section id="windowsartifacts">
             <h1>Windows artifacts</h1>
-            <details>
-                <summary>AmcacheParser</summary>
-                <div class="description">
-                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">AmcacheParser</a> is an Amcache.hve parser with lots of extra features. Handles locked files.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" --csv C:\temp
-AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" -i on --csv C:\temp --csvf foo.csv
-AmcacheParser.exe -f "C:\Temp\amcache\AmcacheWin10.hve" -w "c:\temp\whitelist.txt" --csv C:\temp
-                    </code></pre>
-                </div>
-            </details>
-
-            <details>
-                <summary>AppCompatCacheParser</summary>
-                <div class="description">
-                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">AppCompatCacheParser</a> is an AppCompatCache aka ShimCache parser.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>AppCompatCacheParser.exe --csv c:\temp -t -c 2
-AppCompatCacheParser.exe --csv c:\temp --csvf results.csv
-                    </code></pre>
-                </div>
-            </details>
 
             <details>
                 <summary>JLECmd</summary>
@@ -651,20 +822,6 @@ RecentFileCacheParser.exe -f "C:\Temp\RecentFileCache.bcf" --json "D:\jsonOutput
             </details>
 
             <details>
-                <summary>SBECmd</summary>
-                <div class="description">
-                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SBECmd</a> is a command line edition for exporting shellbag data.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout
-SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --tz "US Eastern Standard Time"
-SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --dedupe
-                    </code></pre>
-                </div>
-            </details>
-
-            <details>
                 <summary>SDBExplorer</summary>
                 <div class="description">
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SDBExplorer</a> is a Shim database GUI tool.</p>
@@ -689,6 +846,44 @@ SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --dedupe
                 <summary>WinPrefetchView</summary>
                 <div class="description">
                     <p><a href="https://www.nirsoft.net/utils/win_prefetch_view.html" target="_blank">WinPrefetchView</a> is a small utility that reads the Prefetch files stored in your system and displays the information stored in them. By looking in these files, you can learn which files every application is using, and which files are loaded on Windows boot.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>SrumECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SrumECmd</a> is a SRUM parser.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>SrumECmd.exe -f "C:\Temp\SRUDB.dat" -r "C:\Temp\SOFTWARE" --csv "C:\Temp\"
+SrumECmd.exe -f "C:\Temp\SRUDB.dat" --csv "c:\temp"
+SrumECmd.exe -d "C:\Temp" --csv "c:\temp"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>SumECmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SumECmd</a> process Microsoft User Access Logs.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>SumECmd.exe -d "C:\Temp\sum" --csv "C:\Temp\"
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>WxTCmd</summary>
+                <div class="description">
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">WxTCmd</a> is a parser for the Windows 10 Timeline feature database.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>WxTCmd.exe -f "C:\Users\eric\AppData\Local\ConnectedDevicesPlatform\L.eric\ActivitiesCache.db" --csv c:\temp
+                    </code></pre>
                 </div>
             </details>
         </section>
