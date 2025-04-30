@@ -23,6 +23,7 @@ UninstallDisplayIcon="{app}\sendto+\forensictools.ico"
 ArchitecturesInstallIn64BitMode=x64
 UsePreviousTasks=yes
 ChangesEnvironment=yes
+AlwaysRestart=yes
 WizardStyle=modern
 
 [Components]
@@ -116,8 +117,12 @@ Name: "passwordcracking"; Description: "Password cracking"; Types: full;
 #include "passwordcracking\ophcrack.iss"
 
 [Components]
-Name: "sleuthkit"; Description: "The Sleuth Kit"; Types: full;
-#include "sleuthkit\sleuthkit.iss"
+Name: "diskforensics"; Description: "Disk forensics"; Types: full;
+#include "diskforensics\sleuthkit.iss"
+#include "diskforensics\bulkextractor.iss"
+#include "diskforensics\testdisk.iss"
+#include "diskforensics\photorec.iss"
+#include "diskforensics\osfmount.iss"
 
 [Components]
 Name: "onlinesearch"; Description: "Online search"; Types: full;
@@ -142,9 +147,8 @@ Name: "utilities"; Description: "Utilities"; Types: full;
 #include "utilities\timelineexplorer.iss"
 #include "utilities\dbbrowser.iss"
 #include "utilities\trid.iss"
-#include "utilities\testdisk.iss"
-#include "utilities\photorec.iss"
 #include "utilities\python.iss"
+#include "utilities\cyberchef.iss"
 
 [Files]
 Source: "{#MySrcDir}\sendto+\sendto+_x64.exe"; Destdir: "{app}\sendto+\"; Check: Is64BitInstallMode
@@ -170,9 +174,14 @@ Root: HKCR; Subkey: "*\shell\forensictools"; ValueType: string; ValueName: "Posi
 Root: HKCR; Subkey: "*\shell\forensictools\command"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "*\shell\forensictools\command"; ValueType: string; ValueName: ""; ValueData: "cmd /c ""start /d {app}\sendto+ {app}\sendto+\sendto+_x64.exe ""%1"""""
 
+[InstallDelete]
+Type: files; Name: "{localappdata}\Microsoft\WindowsApps\python.exe"; Tasks: delmsstorepython
+Type: files; Name: "{localappdata}\Microsoft\WindowsApps\python3*.exe"; Tasks: delmsstorepython
+
 [Tasks]
 Name: "addtopath"; Description: "Add tools to PATH";
 Name: "cmddesktop"; Description: "Create a cmd.exe shortcut on desktop";
+Name: "delmsstorepython"; Description: "Delete default python.exe from Microsoft Store";
 
 [Code]
 procedure EnvAddPath(Path: string);
@@ -250,7 +259,9 @@ begin
       if WizardIsComponentSelected('packing\upx') then EnvAddPath(ExpandConstant('{app}') + '\packing\upx');
       if WizardIsComponentSelected('passwordcracking\hashcat') then EnvAddPath(ExpandConstant('{app}') + '\passwordcracking\hashcat');
       if WizardIsComponentSelected('passwordcracking\ophcrack') then EnvAddPath(ExpandConstant('{app}') + '\passwordcracking\ophcrack');
-      if WizardIsComponentSelected('sleuthkit\sleuthkit') then EnvAddPath(ExpandConstant('{app}') + '\sleuthkit\sleuthkit\bin');
+      if WizardIsComponentSelected('diskforensics\sleuthkit') then EnvAddPath(ExpandConstant('{app}') + '\diskforensics\sleuthkit\bin');
+      if WizardIsComponentSelected('diskforensics\testdisk') then EnvAddPath(ExpandConstant('{app}') + '\diskforensics\testdisk');
+      if WizardIsComponentSelected('diskforensics\bulkextractor') then EnvAddPath(ExpandConstant('{app}') + '\diskforensics\bulkextractor');
       if WizardIsComponentSelected('network\nc') then EnvAddPath(ExpandConstant('{app}') + '\network\nc');
       if WizardIsComponentSelected('utilities\exiftool') then EnvAddPath(ExpandConstant('{app}') + '\utilities\exiftool');
       if WizardIsComponentSelected('utilities\yara') then EnvAddPath(ExpandConstant('{app}') + '\utilities\yara');
@@ -264,7 +275,6 @@ begin
       if WizardIsComponentSelected('utilities\timelineexplorer') then EnvAddPath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
       if WizardIsComponentSelected('utilities\dbbrowser') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dbbrowser');
       if WizardIsComponentSelected('utilities\trid') then EnvAddPath(ExpandConstant('{app}') + '\utilities\trid');
-      if WizardIsComponentSelected('utilities\testdisk') then EnvAddPath(ExpandConstant('{app}') + '\utilities\testdisk');
       if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts');
     end
 end;
@@ -302,7 +312,9 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\packing\upx');
       EnvRemovePath(ExpandConstant('{app}') + '\passwordcracking\hashcat');
       EnvRemovePath(ExpandConstant('{app}') + '\passwordcracking\ophcrack');
-      EnvRemovePath(ExpandConstant('{app}') + '\sleuthkit\sleuthkit\bin');
+      EnvRemovePath(ExpandConstant('{app}') + '\diskforensics\sleuthkit\bin');
+      EnvRemovePath(ExpandConstant('{app}') + '\diskforensics\testdisk');
+      EnvRemovePath(ExpandConstant('{app}') + '\diskforensics\bulkextractor');
       EnvRemovePath(ExpandConstant('{app}') + '\network\nc');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\exiftool');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\yara');
