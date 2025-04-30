@@ -54,6 +54,7 @@ Name: "eventloganalysis"; Description: "Event log analysis"; Types: full;
 #include "eventloganalysis\evtxecmd.iss"
 #include "eventloganalysis\chainsaw.iss"
 #include "eventloganalysis\hayabusa.iss"
+#include "eventloganalysis\apthunter.iss"
 
 [Components]
 Name: "windowsartifacts"; Description: "Windows artifacts"; Types: full;
@@ -123,6 +124,11 @@ Name: "onlinesearch"; Description: "Online search"; Types: full;
 #include "onlinesearch\onlinesearch.iss"
 
 [Components]
+Name: "network"; Description: "Network"; Types: full;
+#include "network\nc.iss"
+#include "network\networkminer.iss"
+
+[Components]
 Name: "utilities"; Description: "Utilities"; Types: full;
 #include "utilities\exiftool.iss"
 #include "utilities\yara.iss"
@@ -135,7 +141,6 @@ Name: "utilities"; Description: "Utilities"; Types: full;
 #include "utilities\dd.iss"
 #include "utilities\timelineexplorer.iss"
 #include "utilities\dbbrowser.iss"
-#include "utilities\nc.iss"
 #include "utilities\trid.iss"
 #include "utilities\testdisk.iss"
 #include "utilities\photorec.iss"
@@ -225,6 +230,7 @@ begin
       if WizardIsComponentSelected('eventloganalysis\evtxecmd') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\evtxecmd');
       if WizardIsComponentSelected('eventloganalysis\chainsaw') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\chainsaw');
       if WizardIsComponentSelected('eventloganalysis\hayabusa') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\hayabusa');
+      if WizardIsComponentSelected('eventloganalysis\apthunter') then EnvAddPath(ExpandConstant('{app}') + '\eventloganalysis\apthunter');
       if WizardIsComponentSelected('windowsartifacts\jlecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\jlecmd');
       if WizardIsComponentSelected('windowsartifacts\lecmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\lecmd');
       if WizardIsComponentSelected('windowsartifacts\rbcmd') then EnvAddPath(ExpandConstant('{app}') + '\windowsartifacts\rbcmd');
@@ -245,6 +251,7 @@ begin
       if WizardIsComponentSelected('passwordcracking\hashcat') then EnvAddPath(ExpandConstant('{app}') + '\passwordcracking\hashcat');
       if WizardIsComponentSelected('passwordcracking\ophcrack') then EnvAddPath(ExpandConstant('{app}') + '\passwordcracking\ophcrack');
       if WizardIsComponentSelected('sleuthkit\sleuthkit') then EnvAddPath(ExpandConstant('{app}') + '\sleuthkit\sleuthkit\bin');
+      if WizardIsComponentSelected('network\nc') then EnvAddPath(ExpandConstant('{app}') + '\network\nc');
       if WizardIsComponentSelected('utilities\exiftool') then EnvAddPath(ExpandConstant('{app}') + '\utilities\exiftool');
       if WizardIsComponentSelected('utilities\yara') then EnvAddPath(ExpandConstant('{app}') + '\utilities\yara');
       if WizardIsComponentSelected('utilities\bstrings') then EnvAddPath(ExpandConstant('{app}') + '\utilities\bstrings');
@@ -256,12 +263,9 @@ begin
       if WizardIsComponentSelected('utilities\dd') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dd');
       if WizardIsComponentSelected('utilities\timelineexplorer') then EnvAddPath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
       if WizardIsComponentSelected('utilities\dbbrowser') then EnvAddPath(ExpandConstant('{app}') + '\utilities\dbbrowser');
-      if WizardIsComponentSelected('utilities\nc') then EnvAddPath(ExpandConstant('{app}') + '\utilities\nc');
       if WizardIsComponentSelected('utilities\trid') then EnvAddPath(ExpandConstant('{app}') + '\utilities\trid');
       if WizardIsComponentSelected('utilities\testdisk') then EnvAddPath(ExpandConstant('{app}') + '\utilities\testdisk');
       if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts');
-      if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\bmc-tools');
-      if WizardIsComponentSelected('utilities\python') then EnvAddPath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\pyinstxtractor');
     end
 end;
 
@@ -278,6 +282,7 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\evtxecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\chainsaw');
       EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\hayabusa');
+      EnvRemovePath(ExpandConstant('{app}') + '\eventloganalysis\apthunter');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\jlecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\lecmd');
       EnvRemovePath(ExpandConstant('{app}') + '\windowsartifacts\rbcmd');
@@ -298,6 +303,7 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\passwordcracking\hashcat');
       EnvRemovePath(ExpandConstant('{app}') + '\passwordcracking\ophcrack');
       EnvRemovePath(ExpandConstant('{app}') + '\sleuthkit\sleuthkit\bin');
+      EnvRemovePath(ExpandConstant('{app}') + '\network\nc');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\exiftool');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\yara');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\bstrings');
@@ -309,11 +315,8 @@ begin
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\dd');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\timelineexplorer');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\dbbrowser');
-      EnvRemovePath(ExpandConstant('{app}') + '\utilities\nc');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\trid');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\testdisk');
       EnvRemovePath(ExpandConstant('{app}') + '\utilities\python\scripts');
-      EnvRemovePath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\bmc-tools');
-      EnvRemovePath(ExpandConstant('{app}') + '\utilities\python\scripts\extras_forensictools\pyinstxtractor');
     end
 end;
