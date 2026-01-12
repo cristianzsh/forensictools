@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file.
 ### Updates
 - Major updates for various tools.
 - x64dbg was moved to the Binary Analysis section.
+- Hayabusa now includes rules from https://github.com/cristianzsh/k-evtrace/tree/main/rules.
 
 ## [1.2] - 2025-05-01
 
