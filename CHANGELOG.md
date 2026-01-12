@@ -1,6 +1,26 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3] - 2026-01-12
+
+### Added
+- API Monitor.
+- ILSpy.
+- mal_unpack.
+- Foremost-NG.
+- ImHex.
+- CobaltStrikeScan.
+- 7-Zip.
+- Notepad++.
+- SQLite command line.
+- AmCache-EvilHunter.
+- LogFileParser.
+- SRUM-DUMP.
+
+### Updates
+- Major updates for various tools.
+- x64dbg was moved to the Binary Analysis section.
+
 ## [1.2] - 2025-05-01
 
 ### Added
