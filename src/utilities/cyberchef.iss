@@ -1,7 +1,7 @@
 ; CyberChef v10.19.4 (https://github.com/gchq/CyberChef)
 
 [Components]
-Name: "utilities\cyberchef"; Description: "CyberChef"; Types: full compact;
+Name: "utilities\cyberchef"; Description: "CyberChef"; Types: full compact
 
 [Files]
 Source: "{#MySrcDir}\utilities\cyberchef\*"; DestDir: "{app}\utilities\cyberchef"; Components: "utilities\cyberchef"; Flags: ignoreversion recursesubdirs createallsubdirs

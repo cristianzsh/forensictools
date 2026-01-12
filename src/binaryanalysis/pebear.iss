@@ -1,7 +1,7 @@
 ; PE-bear v0.7.1 (https://github.com/hasherezade/pe-bear)
 
 [Components]
-Name: "binaryanalysis\pebear"; Description: "PE-bear"; Types: full compact;
+Name: "binaryanalysis\pebear"; Description: "PE-bear"; Types: full compact
 
 [Files]
 Source: "{#MySrcDir}\binaryanalysis\pebear\*"; DestDir: "{app}\binaryanalysis\pebear"; Components: "binaryanalysis\pebear"; Flags: ignoreversion recursesubdirs createallsubdirs

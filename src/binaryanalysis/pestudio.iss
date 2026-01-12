@@ -1,7 +1,7 @@
 ; pestudio 9.61 (https://www.winitor.com/download)
 
 [Components]
-Name: "binaryanalysis\pestudio"; Description: "PEStudio"; Types: full compact;
+Name: "binaryanalysis\pestudio"; Description: "PEStudio"; Types: full compact
 
 [Files]
 Source: "{#MySrcDir}\binaryanalysis\pestudio\*"; DestDir: "{app}\binaryanalysis\pestudio"; Components: "binaryanalysis\pestudio"; Flags: ignoreversion recursesubdirs createallsubdirs

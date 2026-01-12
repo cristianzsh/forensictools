@@ -1,11 +1,11 @@
-; ChromeCookiesView v1.82 (https://www.nirsoft.net/utils/chrome_cookies_view.html)
+; ChromeCookiesView v1.85 (https://www.nirsoft.net/utils/chrome_cookies_view.html)
 
 [Components]
-Name: "chromeutilities\chromecookiesview"; Description: "ChromeCookiesView"; Types: full compact; Check: Is64BitInstallMode
+Name: "chromeutilities\chromecookiesview"; Description: "ChromeCookiesView"; Types: full compact
 
 [Files]
-Source: "{#MySrcDir}\chromeutilities\chromecookiesview\*"; DestDir: "{app}\chromeutilities\chromecookiesview"; Components: "chromeutilities\chromecookiesview"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: Is64BitInstallMode
+Source: "{#MySrcDir}\chromeutilities\chromecookiesview\*"; DestDir: "{app}\chromeutilities\chromecookiesview"; Components: "chromeutilities\chromecookiesview"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\{#MyAppName}\ChromeCookiesView"; Filename: "{app}\chromeutilities\chromecookiesview\ChromeCookiesView.exe"; Components: "chromeutilities\chromecookiesview"; Check: Is64BitInstallMode
-Name: "{app}\sendto+\sendto\Chrome utilities\ChromeCookiesView"; Filename: "{app}\chromeutilities\chromecookiesview\ChromeCookiesView.exe"; Components: "chromeutilities\chromecookiesview"; Check: Is64BitInstallMode
+Name: "{group}\{#MyAppName}\ChromeCookiesView"; Filename: "{app}\chromeutilities\chromecookiesview\ChromeCookiesView.exe"; Components: "chromeutilities\chromecookiesview"
+Name: "{app}\sendto+\sendto\Chrome utilities\ChromeCookiesView"; Filename: "{app}\chromeutilities\chromecookiesview\ChromeCookiesView.exe"; Components: "chromeutilities\chromecookiesview"

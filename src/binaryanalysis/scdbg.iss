@@ -1,7 +1,7 @@
 ; scdbg (https://sandsprite.com/blogs/index.php?uid=7&pid=152)
 
 [Components]
-Name: "binaryanalysis\scdbg"; Description: "scdbg"; Types: full compact;
+Name: "binaryanalysis\scdbg"; Description: "scdbg"; Types: full compact
 
 [Files]
 Source: "{#MySrcDir}\binaryanalysis\scdbg\*"; DestDir: "{app}\binaryanalysis\scdbg"; Components: "binaryanalysis\scdbg"; Flags: ignoreversion recursesubdirs createallsubdirs

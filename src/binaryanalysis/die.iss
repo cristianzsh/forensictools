@@ -1,7 +1,7 @@
 ; Detect it Easy 3.10 (https://github.com/horsicq/Detect-It-Easy)
 
 [Components]
-Name: "binaryanalysis\die"; Description: "Detect It Easy"; Types: full compact;
+Name: "binaryanalysis\die"; Description: "Detect It Easy"; Types: full compact
 
 [Files]
 Source: "{#MySrcDir}\binaryanalysis\die\*"; DestDir: "{app}\binaryanalysis\die"; Components: "binaryanalysis\die"; Flags: ignoreversion recursesubdirs createallsubdirs

@@ -54,6 +54,13 @@
 
         <section id="binaryanalysis">
             <h1>Binary analysis</h1>
+			<details>
+                <summary>API Monitor</summary>
+                <div class="description">
+                    <p><a href="http://www.rohitab.com/apimonitor" target="_blank">API Monitor</a> is a free software that lets you monitor and control API calls made by applications and services. Its a powerful tool for seeing how applications and services work or for tracking down problems that you have in your own applications.</p>
+                </div>
+            </details>
+
             <details>
                 <summary>capa</summary>
                 <div class="description">
@@ -84,6 +91,24 @@ capa 05be49819139a3fdcdbddbdefd298398779521f3d68daa25275cc77508e42310.json
                     <pre><code>floss malware.exe
 floss --only stack tight -- suspicious.exe
                     </code></pre>
+                </div>
+            </details>
+
+			<details>
+                <summary>ILSpy</summary>
+                <div class="description">
+                    <a href="https://github.com/icsharpcode/ILSpy" target="_blank">ILSpy</a> is the open-source .NET assembly browser and decompiler.
+                </div>
+            </details>
+
+			<details>
+                <summary>mal_unpack</summary>
+                <div class="description">
+                    <p>The <a href="https://github.com/hasherezade/mal_unpack" target="_blank">mal_unpack</a> deploys a packed malware, waits for it to unpack the payload, dumps the payload, and kills the original process. This unpacker deploys the original malware. Use it only on a VirtualMachine.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>mal_unpack.exe /exe malware.exe /timeout 2000</code></pre>
                 </div>
             </details>
 
@@ -136,6 +161,13 @@ floss --only stack tight -- suspicious.exe
                     <p><a href="https://sandsprite.com/blogs/index.php?uid=7&pid=152" target="_blank">scdbg</a> is a shellcode analysis application built around the libemu emulation library. When run it will display to the user all of the Windows API the shellcode attempts to call.</p>
                 </div>
             </details>
+
+			<details>
+                <summary>x64dbg</summary>
+                <div class="description">
+                    <p><a href="https://x64dbg.com" target="_blank">x64dbg</a> is an open-source x64/x32 debugger for windows.</p>
+                </div>
+            </details>
         </section>
 
         <hr/>
@@ -166,12 +198,69 @@ floss --only stack tight -- suspicious.exe
 
         <hr/>
 
-        <section id="debugging">
-            <h1>Debugging</h1>
+		<section id="diskforensics">
+            <h1>Disk forensics</h1>
             <details>
-                <summary>x64dbg</summary>
+                <summary>bulk_extractor</summary>
                 <div class="description">
-                    <p><a href="https://x64dbg.com" target="_blank">x64dbg</a> is an open-source x64/x32 debugger for windows.</p>
+                    <p><a href="https://github.com/simsong/bulk_extractor" target="_blank">bulk_extractor</a> is a high-performance digital forensics exploitation tool. It is a "get evidence" button that rapidly scans any kind of input (disk images, files, directories of files, etc) and extracts structured information such as email addresses, credit card numbers, JPEGs and JSON snippets without parsing the file system or file system structures. The results are stored in text files that are easily inspected, searched, or used as inputs for other forensic processing. bulk_extractor also creates histograms of certain kinds of features that it finds, such as Google search terms and email addresses, as previous research has shown that such histograms are especially useful in investigative and law enforcement applications.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>bulk_extractor -o bulk-out image.img
+                    </code></pre>
+                </div>
+            </details>
+
+			<details>
+                <summary>Foremost-NG</summary>
+                <div class="description">
+                    <p><a href="https://github.com/cristianzsh/foremost-ng" target="_blank">Foremost-NG</a> is a file recovery tool that extracts files from disk images or devices by scanning for configurable file headers and footers. It supports common forensic formats (e.g., .dd, Safeback, Encase) and can operate on both image files and live devices.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>foremost-ng -i disk.img -o /temp/output/carved
+foremost-ng -t evtx,elf,exe -i disk.img -o /temp/output/carved
+foremost-ng -x -t elf -i memory.dump -o ./carved-files
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>OSFMount</summary>
+                <div class="description">
+                    <p><a href="https://www.osforensics.com/tools/mount-disk-images.html" target="_blank">OSFMount</a> allows you to mount local disk image files (bit-for-bit copies of an entire disk or disk partition) in Windows as a physical disk or a logical drive letter. You can then analyze the disk image file with PassMark OSForensics™ by using the physical disk name (eg. \\.\PhysicalDrive1) or logical drive letter (eg. Z:). By default, the image files are mounted as read only so that the original image files are not altered.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Sleuth Kit tools</summary>
+                <div class="description">
+                    <p><a href="https://www.sleuthkit.org" target="_blank">The Sleuth Kit®</a> is a collection of command line tools and a C library that allows you to analyze disk images and recover files from them. It is used behind the scenes in Autopsy and many other open source and commercial forensics tools.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>fsstat -i raw evidence.dd
+fls -i raw evidence.dd
+istat -f ext4 -i raw evidence.dd
+mmls evidence.dd
+fsstat evidence.dd
+img_stat evidence.dd
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>PhotoRec</summary>
+                <div class="description">
+                    <p><a href="https://www.cgsecurity.org/wiki/TestDisk_Download" target="_blank">PhotoRec</a> is file data recovery software designed to recover lost files including video, documents and archives from hard disks (Mechanical Hard drives, Solid State Drives...), CD-ROMs, and lost pictures (thus the Photo Recovery name) from digital camera memory. PhotoRec ignores the file system and goes after the underlying data, so it will still work even if your media's file system has been severely damaged or reformatted.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>TestDisk</summary>
+                <div class="description">
+                    <p><a href="https://www.cgsecurity.org/wiki/TestDisk_Download" target="_blank">TestDisk</a> is powerful free data recovery software! It was primarily designed to help recover lost partitions and/or make non-booting disks bootable again when these symptoms are caused by faulty software: certain types of viruses or human error (such as accidentally deleting a Partition Table). Partition table recovery using TestDisk is really easy.</p>
                 </div>
             </details>
         </section>
@@ -181,15 +270,16 @@ floss --only stack tight -- suspicious.exe
         <section id="eventloganalysis">
             <h1>Event log analysis</h1>
             <details>
-                <summary>Hayabusa</summary>
+                <summary>APT-Hunter</summary>
                 <div class="description">
-                    <p><a href="https://github.com/Yamato-Security/hayabusa" target="_blank">Hayabusa</a> is a Windows event log fast forensics timeline generator and threat hunting tool created by the Yamato Security group in Japan.</p>
+                    <p><a href="https://github.com/ahmedkhlief/APT-Hunter" target="_blank">APT-Hunter</a> is a Threat Hunting tool for windows event logs which made by purple team mindset to detect APT movements hidden in the sea of windows event logs to decrease the time to uncover suspicious activity. APT-Hunter use pre-defined detection rules and focus on statistics to uncover abnormalities which is very effective in compromise assessment.</p>
 
                     <p><strong>Examples:</strong></p>
 
-                    <pre><code>hayabusa.exe search -d ../hayabusa-sample-evtx -k "mimikatz"
-hayabusa.exe search -d ../hayabusa-sample-evtx -r "(?:[0-9]{1,3}\.){3}[0-9]{1,3}"
-hayabusa.exe search -d ../hayabusa-sample-evtx -r ".*" -F WorkstationName:"kali"
+                    <pre><code>APT-Hunter.exe -p /opt/wineventlogs/ -o Project1 -allreport
+APT-Hunter.exe -hunt "psexec" -p /opt/wineventlogs/ -o Project2
+APT-Hunter.exe -huntfile "(psexec|psexesvc)" -p /opt/wineventlogs/ -o Project2
+APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
                     </code></pre>
                 </div>
             </details>
@@ -224,16 +314,15 @@ EvtxECmd.exe -f "C:\Temp\Application.evtx" --json "c:\temp\jsonout"
             </details>
 
             <details>
-                <summary>APT-Hunter</summary>
+                <summary>Hayabusa</summary>
                 <div class="description">
-                    <p><a href="https://github.com/ahmedkhlief/APT-Hunter" target="_blank">APT-Hunter</a> is a Threat Hunting tool for windows event logs which made by purple team mindset to detect APT movements hidden in the sea of windows event logs to decrease the time to uncover suspicious activity. APT-Hunter use pre-defined detection rules and focus on statistics to uncover abnormalities which is very effective in compromise assessment.</p>
+                    <p><a href="https://github.com/Yamato-Security/hayabusa" target="_blank">Hayabusa</a> is a Windows event log fast forensics timeline generator and threat hunting tool created by the Yamato Security group in Japan.</p>
 
                     <p><strong>Examples:</strong></p>
 
-                    <pre><code>APT-Hunter.exe -p /opt/wineventlogs/ -o Project1 -allreport
-APT-Hunter.exe -hunt "psexec" -p /opt/wineventlogs/ -o Project2
-APT-Hunter.exe -huntfile "(psexec|psexesvc)" -p /opt/wineventlogs/ -o Project2
-APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
+                    <pre><code>hayabusa.exe search -d ../hayabusa-sample-evtx -k "mimikatz"
+hayabusa.exe search -d ../hayabusa-sample-evtx -r "(?:[0-9]{1,3}\.){3}[0-9]{1,3}"
+hayabusa.exe search -d ../hayabusa-sample-evtx -r ".*" -F WorkstationName:"kali"
                     </code></pre>
                 </div>
             </details>
@@ -243,6 +332,18 @@ APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
 
         <section id="hashing">
             <h1>Hashing</h1>
+            <details>
+                <summary>GetHashes</summary>
+                <div class="description">
+                    <p>Simple batch script for getting MD5, SHA-1, and SHA-256 hashes.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>GetHashes file.exe
+                    </code></pre>
+                </div>
+            </details>
+
             <details>
                 <summary>HashCalc</summary>
                 <div class="description">
@@ -256,24 +357,19 @@ APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Hasher</a> is an utility to calculate hashes for files.</p>
                 </div>
             </details>
-
-            <details>
-                <summary>GetHashes</summary>
-                <div class="description">
-                    <p>Simple batch script for getting MD5, SHA-1, and SHA-256 hashes.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>GetHashes file.exe
-                    </code></pre>
-                </div>
-            </details>
         </section>
 
         <hr/>
 
         <section id="hexeditors">
             <h1>Hex editors</h1>
+			<details>
+                <summary>ImHex</summary>
+                <div class="description">
+                    <p><a href="https://github.com/WerWolv/ImHex" target="_blank">ImHex</a> is a hex editor for reverse engineers.</p>
+                </div>
+            </details>
+
             <details>
                 <summary>HxD</summary>
                 <div class="description">
@@ -296,12 +392,16 @@ APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
 
         <hr/>
 
-        <section id="memoryforensics">
-            <h1>Memory forensics</h1>
-            <details>
-                <summary>Volatility Workbench</summary>
+        <section id="memoryanalysis">
+            <h1>Memory analysis</h1>
+			<details>
+                <summary>CobaltStrikeScan</summary>
                 <div class="description">
-                    <p><a href="https://www.osforensics.com/tools/volatility-workbench.html" target="_blank">Volatility Workbench</a> is a free open source tool that provides a graphic user interface for the Volatility memory analysis forensics tool.</p>
+                    <p><a href="https://github.com/Apr4h/CobaltStrikeScan" target="_blank">CobaltStrikeScan</a> scans Windows process memory for evidence of DLL injection (classic or reflective injection) and/or performs a YARA scan on the target process' memory for Cobalt Strike v3 and v4 beacon signatures.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>CobaltStrikeScan.exe -p -d</code></pre>
                 </div>
             </details>
 
@@ -316,6 +416,13 @@ APT-Hunter.exe -sigma -rules rules.json -p /opt/wineventlogs/ -o Project2
 memprocfs.exe -device c:\temp\win10x64-dump.raw -forensic 1 -forensic-yara-rules c:\yara\rules\windows_malware_index.yar
 memprocfs.exe -device unknown-x64-dump.raw -pagefile0 pagefile.sys -pagefile1 swapfile.sys
                     </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Volatility Workbench</summary>
+                <div class="description">
+                    <p><a href="https://www.osforensics.com/tools/volatility-workbench.html" target="_blank">Volatility Workbench</a> is a free open source tool that provides a graphic user interface for the Volatility memory analysis forensics tool.</p>
                 </div>
             </details>
         </section>
@@ -350,6 +457,31 @@ MFTECmd.exe -f "C:\Temp\SomeMFT" --de 5-5
 
         <hr/>
 
+        <section id="network">
+            <h1>Network</h1>
+            <details>
+                <summary>nc</summary>
+                <div class="description">
+                    <p><a href="https://sectools.org/tool/netcat/" target="_blank">nc</a> is a simple utility that reads and writes data across TCP or UDP network connections. It is designed to be a reliable back-end tool to use directly or easily drive by other programs and scripts. At the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need, including port binding to accept incoming connections.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>nc -z -v 10.10.10.10 20-80 # simple port scan
+nc -lvp 8080 # listen on port 8080
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>NetworkMiner</summary>
+                <div class="description">
+                    <p><a href="https://www.netresec.com/?page=NetworkMiner" target="_blank">NetworkMiner</a> is an open source network forensics tool that extracts artifacts, such as files, images, emails and passwords, from captured network traffic in PCAP files. NetworkMiner can also be used to capture live network traffic by sniffing a network interface. Detailed information about each IP address in the analyzed network traffic is aggregated to a network host inventory, which can be used for passive asset discovery as well as to get an overview of which devices that are communicating.</p>
+                </div>
+            </details>
+        </section>
+
+        <hr/>
+
         <section id="packing">
             <h1>Packing</h1>
             <details>
@@ -378,13 +510,6 @@ upx -d packed_file.exe
         <section id="passwordcracking">
             <h1>Password cracking</h1>
             <details>
-                <summary>Hash Suite Free</summary>
-                <div class="description">
-                    <p><a href="https://hashsuite.openwall.net" target="_blank">Hash Suite</a> is a Windows program to test security of password hashes.</p>
-                </div>
-            </details>
-
-            <details>
                 <summary>hashcat</summary>
                 <div class="description">
                     <p>hashcat is the world's fastest and most advanced password recovery utility, supporting five unique modes of attack for over 300 highly-optimized hashing algorithms. hashcat currently supports CPUs, GPUs, and other hardware accelerators on Linux, Windows, and macOS, and has facilities to help enable distributed password cracking.</p>
@@ -394,6 +519,13 @@ upx -d packed_file.exe
                     <pre><code>hashcat -m 0 -a 0 hash.txt wordlist.txt
 hashcat -m 1000 ntlmhash.txt -a 0 rockyou.txt
                     </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>Hash Suite Free</summary>
+                <div class="description">
+                    <p><a href="https://hashsuite.openwall.net" target="_blank">Hash Suite</a> is a Windows program to test security of password hashes.</p>
                 </div>
             </details>
 
@@ -481,88 +613,21 @@ SBECmd.exe -d c:\temp\hives --csv c:\temp\sbeout --dedupe
 
         <hr/>
 
-        <section id="diskanalysis">
-            <h1>Disk analysis</h1>
-            <details>
-                <summary>bulk_extractor</summary>
-                <div class="description">
-                    <p><a href="https://github.com/simsong/bulk_extractor" target="_blank">bulk_extractor</a> is a high-performance digital forensics exploitation tool. It is a "get evidence" button that rapidly scans any kind of input (disk images, files, directories of files, etc) and extracts structured information such as email addresses, credit card numbers, JPEGs and JSON snippets without parsing the file system or file system structures. The results are stored in text files that are easily inspected, searched, or used as inputs for other forensic processing. bulk_extractor also creates histograms of certain kinds of features that it finds, such as Google search terms and email addresses, as previous research has shown that such histograms are especially useful in investigative and law enforcement applications.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>bulk_extractor -o bulk-out image.img
-                    </code></pre>
-                </div>
-            </details>
-
-            <details>
-                <summary>OSFMount</summary>
-                <div class="description">
-                    <p><a href="https://www.osforensics.com/tools/mount-disk-images.html" target="_blank">OSFMount</a> allows you to mount local disk image files (bit-for-bit copies of an entire disk or disk partition) in Windows as a physical disk or a logical drive letter. You can then analyze the disk image file with PassMark OSForensics™ by using the physical disk name (eg. \\.\PhysicalDrive1) or logical drive letter (eg. Z:). By default, the image files are mounted as read only so that the original image files are not altered.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>Sleuth Kit tools</summary>
-                <div class="description">
-                    <p><a href="https://www.sleuthkit.org" target="_blank">The Sleuth Kit®</a> is a collection of command line tools and a C library that allows you to analyze disk images and recover files from them. It is used behind the scenes in Autopsy and many other open source and commercial forensics tools.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>fsstat -i raw evidence.dd
-fls -i raw evidence.dd
-istat -f ext4 -i raw evidence.dd
-mmls evidence.dd
-fsstat evidence.dd
-img_stat evidence.dd
-                    </code></pre>
-                </div>
-            </details>
-
-            <details>
-                <summary>PhotoRec</summary>
-                <div class="description">
-                    <p><a href="https://www.cgsecurity.org/wiki/TestDisk_Download" target="_blank">PhotoRec</a> is file data recovery software designed to recover lost files including video, documents and archives from hard disks (Mechanical Hard drives, Solid State Drives...), CD-ROMs, and lost pictures (thus the Photo Recovery name) from digital camera memory. PhotoRec ignores the file system and goes after the underlying data, so it will still work even if your media's file system has been severely damaged or reformatted.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>TestDisk</summary>
-                <div class="description">
-                    <p><a href="https://www.cgsecurity.org/wiki/TestDisk_Download" target="_blank">TestDisk</a> is powerful free data recovery software! It was primarily designed to help recover lost partitions and/or make non-booting disks bootable again when these symptoms are caused by faulty software: certain types of viruses or human error (such as accidentally deleting a Partition Table). Partition table recovery using TestDisk is really easy.</p>
-                </div>
-            </details>
-        </section>
-
-        <hr/>
-
-        <section id="network">
-            <h1>Network</h1>
-            <details>
-                <summary>nc</summary>
-                <div class="description">
-                    <p><a href="https://sectools.org/tool/netcat/" target="_blank">nc</a> is a simple utility that reads and writes data across TCP or UDP network connections. It is designed to be a reliable back-end tool to use directly or easily drive by other programs and scripts. At the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need, including port binding to accept incoming connections.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>nc -z -v 10.10.10.10 20-80 # simple port scan
-nc -lvp 8080 # listen on port 8080
-                    </code></pre>
-                </div>
-            </details>
-
-            <details>
-                <summary>NetworkMiner</summary>
-                <div class="description">
-                    <p><a href="https://www.netresec.com/?page=NetworkMiner" target="_blank">NetworkMiner</a> is an open source network forensics tool that extracts artifacts, such as files, images, emails and passwords, from captured network traffic in PCAP files. NetworkMiner can also be used to capture live network traffic by sniffing a network interface. Detailed information about each IP address in the analyzed network traffic is aggregated to a network host inventory, which can be used for passive asset discovery as well as to get an overview of which devices that are communicating.</p>
-                </div>
-            </details>
-        </section>
-
-        <hr/>
-
         <section id="utilities">
             <h1>Utilities</h1>
+			<details>
+                <summary>7-Zip</summary>
+                <div class="description">
+                    <p><a href="https://www.7-zip.org" target="_blank">7-Zip</a> is a file archiver with a high compression ratio.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>7z x protected.zip
+7z a myzip ./MyFolder/*
+                    </code></pre>
+                </div>
+            </details>
+
             <details>
                 <summary>bstrings</summary>
                 <div class="description">
@@ -625,7 +690,7 @@ dd if=\\?\Device\Harddisk1\Partition0 of=c:\temp\usb2.img bs=1M --size --progres
                 </div>
             </details>
 
-            <details>
+			<details>
                 <summary>exiftool</summary>
                 <div class="description">
                     <p><a href="https://exiftool.org" target="_blank">exiftool</a> is a command-line application and Perl library for reading and writing EXIF, GPS, IPTC, XMP, makernotes and other meta information in image, audio and video.</p>
@@ -637,24 +702,10 @@ dd if=\\?\Device\Harddisk1\Partition0 of=c:\temp\usb2.img bs=1M --size --progres
                 </div>
             </details>
 
-            <details>
-                <summary>Timeline Explorer</summary>
+			<details>
+                <summary>Notepad++</summary>
                 <div class="description">
-                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Timeline Explorer</a> is tool for viewing CSV and Excel files, as well as aplying filters.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>yara</summary>
-                <div class="description">
-                    <p><a href="https://github.com/VirusTotal/yara" target="_blank">YARA</a> is an open-source tool designed to help malware researchers identify and classify malware samples. It makes it possible to create descriptions (or rules) for malware families based on textual and/or binary patterns. YARA is multi-platform, running on Linux, Windows and Mac OS X. It can be used through its command-line interface or from Python scripts with the YARA-Python extension.</p>
-
-                    <p><strong>Examples:</strong></p>
-
-                    <pre><code>yara /foo/bar/rules1 /foo/bar/rules2 .
-yara -t Packer -t Compiler /foo/bar/rules bazfile
-yara -r /foo
-                    </code></pre>
+                    <p><a href="https://github.com/notepad-plus-plus/notepad-plus-plus" target="_blank">Notepad++</a> is a free source code editor and Notepad replacement that supports several programming languages and natural languages.</p>
                 </div>
             </details>
 
@@ -672,6 +723,13 @@ OfficeMalScanner.exe "C:\File.xls" info
             </details>
 
             <details>
+                <summary>Python/WinPython</summary>
+                <div class="description">
+                    <p><a href="https://winpython.github.io" target="_blank">WinPython</a> is a free open-source portable distribution of the Python programming language for Windows 10/11 and scientific and educational usage.</p>
+                </div>
+            </details>
+
+            <details>
                 <summary>SQLECmd</summary>
                 <div class="description">
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">SQLECmd</a> is a tool to find and process SQLite files according to your needs with maps.</p>
@@ -681,6 +739,27 @@ OfficeMalScanner.exe "C:\File.xls" info
                     <pre><code>SQLECmd.exe -f "C:\Temp\someFile.db" --csv "c:\temp\out"
 SQLECmd.exe -d "C:\Temp\" --csv "c:\temp\out"
 SQLECmd.exe -d "C:\Temp\" --hunt --csv "c:\temp\out"
+                    </code></pre>
+                </div>
+            </details>
+
+			<details>
+                <summary>SQLite</summary>
+                <div class="description">
+                    <p><a href="https://sqlite.org" target="_blank">SQLite</a> CLI is an application that accepts user input and passes it down into the SQLite library for evaluation.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>$ sqlite3 ex1
+SQLite version 3.36.0 2021-06-18 18:36:39
+Enter ".help" for usage hints.
+sqlite> create table tbl1(one text, two int);
+sqlite> insert into tbl1 values('hello!',10);
+sqlite> insert into tbl1 values('goodbye', 20);
+sqlite> select * from tbl1;
+hello!|10
+goodbye|20
+sqlite>
                     </code></pre>
                 </div>
             </details>
@@ -700,9 +779,9 @@ steghide extract -sf image.jpg
             </details>
 
             <details>
-                <summary>$I Parse</summary>
+                <summary>Timeline Explorer</summary>
                 <div class="description">
-                    <p><a href="https://df-stream.com/recycle-bin-i-parser/" target="_blank">$I Parse</a> is a tool for parsing $I (index) files from the Recycle Bin of Windows Vista and later.</p>
+                    <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">Timeline Explorer</a> is tool for viewing CSV and Excel files, as well as aplying filters.</p>
                 </div>
             </details>
 
@@ -720,10 +799,29 @@ dir d:\testdrive /s /b | trid -ce -@
                 </div>
             </details>
 
-            <details>
-                <summary>WinPython</summary>
+			<details>
+                <summary>Velociraptor</summary>
                 <div class="description">
-                    <p><a href="https://winpython.github.io" target="_blank">WinPython</a> is a free open-source portable distribution of the Python programming language for Windows 10/11 and scientific and educational usage.</p>
+                    <p><a href="https://github.com/Velocidex/velociraptor" target="_blank">Velociraptor</a> is a tool for collecting host based state information using The Velociraptor Query Language (VQL) queries.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>velociraptor gui
+                    </code></pre>
+                </div>
+            </details>
+
+            <details>
+                <summary>yara</summary>
+                <div class="description">
+                    <p><a href="https://github.com/VirusTotal/yara" target="_blank">YARA</a> is an open-source tool designed to help malware researchers identify and classify malware samples. It makes it possible to create descriptions (or rules) for malware families based on textual and/or binary patterns. YARA is multi-platform, running on Linux, Windows and Mac OS X. It can be used through its command-line interface or from Python scripts with the YARA-Python extension.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>yara /foo/bar/rules1 /foo/bar/rules2 .
+yara -t Packer -t Compiler /foo/bar/rules bazfile
+yara -r /foo
+                    </code></pre>
                 </div>
             </details>
         </section>
@@ -732,6 +830,28 @@ dir d:\testdrive /s /b | trid -ce -@
 
         <section id="windowsartifacts">
             <h1>Windows artifacts</h1>
+
+			<details>
+                <summary>AmCache-EvilHunter</summary>
+                <div class="description">
+                    <p><a href="https://github.com/cristianzsh/amcache-evilhunter" target="_blank">AmCache-EvilHunter</a> is a command-line tool to parse and analyze Windows Amcache.hve registry hives, identify evidence of execution, suspicious executables, and integrate VirusTotal/OpenTIP lookups for enhanced threat intelligence.</p>
+
+                    <p><strong>Examples:</strong></p>
+
+                    <pre><code>amcache_evilhunter.exe -i Amcache.hve
+amcache_evilhunter.exe -i Amcache.hve --start 2021-01-01 --end 2021-12-31 --search notepad
+amcache_evilhunter.exe -i Amcache.hve --find-suspicious -v
+amcache_evilhunter.exe -i Amcache.hve -v --only-detections --json detections.json
+                    </code></pre>
+                </div>
+            </details>
+
+			<details>
+                <summary>$I Parse</summary>
+                <div class="description">
+                    <p><a href="https://df-stream.com/recycle-bin-i-parser/" target="_blank">$I Parse</a> is a tool for parsing $I (index) files from the Recycle Bin of Windows Vista and later.</p>
+                </div>
+            </details>
 
             <details>
                 <summary>JLECmd</summary>
@@ -775,6 +895,13 @@ LECmd.exe -d "C:\Temp" --csv "c:\temp" --html c:\temp --xml c:\temp\xml -q
 LECmd.exe -f "C:\Temp\some other link.lnk" --nid --neb
 LECmd.exe -d "C:\Temp" --all
                     </code></pre>
+                </div>
+            </details>
+			
+			<details>
+                <summary>LogFileParser</summary>
+                <div class="description">
+                    <p><a href="https://github.com/jschicht/LogFileParser" target="_blank">LogFileParser</a> is a parser for the $LogFile artifact on NTFS.</p>
                 </div>
             </details>
 
@@ -828,24 +955,10 @@ RecentFileCacheParser.exe -f "C:\Temp\RecentFileCache.bcf" --json "D:\jsonOutput
                 </div>
             </details>
 
-            <details>
-                <summary>Thumbcache viewer</summary>
+			<details>
+                <summary>SRUM-DUMP</summary>
                 <div class="description">
-                    <p><a href="https://thumbcacheviewer.github.io" target="_blank">Thumbcache Viewer</a> allows you to extract thumbnail images from the thumbcache_*.db and iconcache_*.db database files found on Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows 10, and Windows 11.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>WFA</summary>
-                <div class="description">
-                    <p><a href="https://www.mitec.cz/wfa.html" target="_blank">WFA</a> decodes and analyzes some special files used by Windows OS.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>WinPrefetchView</summary>
-                <div class="description">
-                    <p><a href="https://www.nirsoft.net/utils/win_prefetch_view.html" target="_blank">WinPrefetchView</a> is a small utility that reads the Prefetch files stored in your system and displays the information stored in them. By looking in these files, you can learn which files every application is using, and which files are loaded on Windows boot.</p>
+                    <p><a href="https://github.com/MarkBaggett/srum-dump" target="_blank">SRUM-DUMP</a> extracts data from the System Resource Utilization Management (SRUM) database and generates an Excel spreadsheet.</p>
                 </div>
             </details>
 
@@ -876,6 +989,27 @@ SrumECmd.exe -d "C:\Temp" --csv "c:\temp"
             </details>
 
             <details>
+                <summary>Thumbcache viewer</summary>
+                <div class="description">
+                    <p><a href="https://thumbcacheviewer.github.io" target="_blank">Thumbcache Viewer</a> allows you to extract thumbnail images from the thumbcache_*.db and iconcache_*.db database files found on Windows Vista, Windows 7, Windows 8, Windows 8.1, Windows 10, and Windows 11.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>WFA</summary>
+                <div class="description">
+                    <p><a href="https://www.mitec.cz/wfa.html" target="_blank">WFA</a> decodes and analyzes some special files used by Windows OS.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>WinPrefetchView</summary>
+                <div class="description">
+                    <p><a href="https://www.nirsoft.net/utils/win_prefetch_view.html" target="_blank">WinPrefetchView</a> is a small utility that reads the Prefetch files stored in your system and displays the information stored in them. By looking in these files, you can learn which files every application is using, and which files are loaded on Windows boot.</p>
+                </div>
+            </details>
+
+            <details>
                 <summary>WxTCmd</summary>
                 <div class="description">
                     <p><a href="https://ericzimmerman.github.io/#!index.md" target="_blank">WxTCmd</a> is a parser for the Windows 10 Timeline feature database.</p>
@@ -892,6 +1026,13 @@ SrumECmd.exe -d "C:\Temp" --csv "c:\temp"
 
         <section id="pythonutils">
             <h1>Python 3 utilities</h1>
+			<details>
+                <summary>1768.py</summary>
+                <div class="description">
+                    <p><a href="https://github.com/DidierStevens/DidierStevensSuite/blob/master/1768.py" target="_blank">1768.py</a> decrypts and dumps the configuration of Cobalt Strike Windows beacons (PE files), shellcode and memory dumps.</p>
+                </div>
+            </details>
+
             <details>
                 <summary>bmc-tools</summary>
                 <div class="description">

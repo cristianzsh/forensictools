@@ -1,7 +1,7 @@
 ; PPEE (puppy) v1.13.1 (https://www.mzrst.com/)
 
 [Components]
-Name: "binaryanalysis\ppee"; Description: "PPEE (puppy)"; Types: full compact;
+Name: "binaryanalysis\ppee"; Description: "PPEE (puppy)"; Types: full compact
 
 [Files]
 Source: "{#MySrcDir}\binaryanalysis\ppee\*"; DestDir: "{app}\binaryanalysis\ppee"; Components: "binaryanalysis\ppee"; Flags: ignoreversion recursesubdirs createallsubdirs
